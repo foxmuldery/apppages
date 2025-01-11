@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于 - 老y的工具集</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .classic-bg {
+            background: #fcfbf9;
+        }
+        
+        .nav-classic {
+            background: rgba(252, 251, 249, 0.98);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .classic-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .classic-ornament::before,
+        .classic-ornament::after {
+            content: '';
+            height: 1px;
+            width: 60px;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+        }
+
+        .classic-ornament span {
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            color: rgba(0, 0, 0, 0.2);
+        }
+
+        .classic-link {
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .classic-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .classic-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        .content-section {
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            position: relative;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            right: 0.5rem;
+            bottom: 0.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="classic-bg min-h-screen font-serif">
+    <!-- 导航栏 -->
+    <nav class="nav-classic fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-xl tracking-wide text-gray-900">老y的自制工具集</a>
+                <a href="/about.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-500 classic-link">关于</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="max-w-3xl mx-auto px-6 pt-24 pb-16">
+        <!-- 头部 -->
+        <div class="text-center mb-12">
+            <h1 class="text-3xl text-gray-900 mb-4 tracking-wide">关于这个工具集</h1>
+            <div class="classic-ornament">
+                <span>❧</span>
+            </div>
+        </div>
+
+        <!-- 介绍内容 -->
+        <div class="content-section rounded-2xl p-8 mb-8">
+            <p class="text-gray-600 leading-relaxed mb-4">
+                大家好，我是老y。本职是一名影视工作者，同时还作为一名摄影爱好者和工具创作者，我希望通过简单易用的工具来解决日常创作中的小问题。
+            </p>
+            <p class="text-gray-600 leading-relaxed mb-4">
+                每个工具都秉承着简单易用的理念，尽量减少使用门槛，让用户可以快速上手并获得所需的结果。
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+                工具集会持续更新和优化，欢迎提供建议和反馈。
+            </p>
+        </div>
+
+        <!-- 联系方式 -->
+        <div class="content-section rounded-2xl p-8 mb-8">
+            <h2 class="text-xl text-gray-900 mb-6 tracking-wide">联系方式</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-gray-900 mb-1">邮箱</h3>
+                    <p class="text-gray-600">yuanzhe2023@hotmail.com</p>
+                </div>
+                <div>
+                    <h3 class="text-gray-900 mb-1">小红书</h3>
+                    <p class="text-gray-600">老y的影像记录</p>
+                </div>
+                <div>
+                    <h3 class="text-gray-900 mb-1">微信</h3>
+                    <p class="text-gray-600">laoyuanyingshi</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 更新日志 -->
+        <div class="content-section rounded-2xl p-8">
+            <h2 class="text-xl text-gray-900 mb-6 tracking-wide">更新日志</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-gray-900 mb-2">2024-01-11</h3>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>优化网站整体设计</li>
+                        <li>更新工具页面布局</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-gray-900 mb-2">2024-01-10</h3>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>网站初始化</li>
+                        <li>完成基础框架搭建</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="py-8 px-6">
+        <div class="classic-ornament">
+            <span>❦</span>
+        </div>
+        <div class="text-center text-sm text-gray-500">
+            开发者：老y
+        </div>
+    </footer>
+</body>
+</html>

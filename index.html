@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老y的自制工具集 - 简单、优雅的在线工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .classic-bg {
+            background: #fcfbf9;
+        }
+        
+        .card-classic {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            position: relative;
+        }
+        
+        .card-classic::before {
+            content: '';
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            right: 0.5rem;
+            bottom: 0.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            pointer-events: none;
+        }
+        
+        .card-classic:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.03),
+                0 0 0 1px rgba(0, 0, 0, 0.01);
+        }
+        
+        .nav-classic {
+            background: rgba(252, 251, 249, 0.98);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .classic-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .classic-ornament::before,
+        .classic-ornament::after {
+            content: '';
+            height: 1px;
+            width: 60px;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+        }
+
+        .classic-ornament span {
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            color: rgba(0, 0, 0, 0.2);
+        }
+
+        .classic-link {
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .classic-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .classic-link:hover::after {
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+<body class="classic-bg min-h-screen font-serif">
+    <!-- 导航栏 -->
+    <nav class="nav-classic fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-xl tracking-wide text-gray-900">老y的自制工具集</a>
+                <a href="about.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-500 classic-link">关于</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="max-w-6xl mx-auto px-6 pt-24 pb-16">
+        <!-- 头部介绍 -->
+        <div class="text-center mb-20">
+            <h1 class="text-4xl text-gray-900 mb-4 tracking-wide leading-tight">
+                简约优雅的在线工具
+            </h1>
+            <div class="classic-ornament">
+                <span>❧</span>
+            </div>
+            <p class="text-lg text-gray-600 tracking-wide">
+                给工作和生活增加一点小确幸
+            </p>
+        </div>
+
+        <!-- 工具卡片 -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- 摘星卡片 -->
+            <a href="https://starcard.foxlaoy.com/" class="block">
+                <div class="card-classic rounded-2xl p-8 h-full">
+                    <div class="text-3xl mb-4">✨</div>
+                    <h2 class="text-2xl text-gray-900 mb-3 tracking-wide">摘星卡片</h2>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        简洁的一键文字分享工具，将精彩文字转化为精美卡片。智能排版，自动复制下载，让知识分享更有温度。
+                    </p>
+                    <div class="flex items-center text-gray-400 group">
+                        <span class="text-sm group-hover:text-gray-800 transition-colors duration-500 classic-link">探索工具</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 照片边框工具 -->
+            <a href="https://toolpage.foxlaoy.com/" class="block">
+                <div class="card-classic rounded-2xl p-8 h-full">
+                    <div class="text-3xl mb-4">🖼️</div>
+                    <h2 class="text-2xl text-gray-900 mb-3 tracking-wide">照片边框工具</h2>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        两款简约的照片处理工具，让照片展示更有格调。支持本地处理，自定义边框，胶片信息添加。
+                    </p>
+                    <div class="flex items-center text-gray-400 group">
+                        <span class="text-sm group-hover:text-gray-800 transition-colors duration-500 classic-link">探索工具</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="py-8 px-6">
+        <div class="classic-ornament">
+            <span>❦</span>
+        </div>
+        <div class="text-center text-sm text-gray-500">
+            开发者：老y
+        </div>
+    </footer>
+</body>
+</html>
