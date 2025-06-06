@@ -81,6 +81,30 @@
         .classic-link:hover::after {
             transform: scaleX(1);
         }
+        
+        .tag-new {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #4c6ef5;
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(76, 110, 245, 0.3);
+        }
+        
+        .tool-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tool-icon {
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body class="classic-bg min-h-screen font-serif">
@@ -111,11 +135,30 @@
 
         <!-- 工具卡片 -->
         <div class="grid md:grid-cols-2 gap-8">
+            <!-- 闪光灯功率计算器 -->
+            <a href="https://flashlight-bgp.pages.dev" class="block">
+                <div class="card-classic rounded-2xl p-8 h-full relative">
+                    <div class="tag-new">新</div>
+                    <h2 class="tool-title text-2xl text-gray-900 mb-3 tracking-wide">
+                        <span class="tool-icon">⚡</span>
+                        <span>闪光灯功率计算器</span>
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        简约优雅的摄影辅助工具，帮助摄影师快速计算闪光灯功率设置。基于GN值、距离、光圈和ISO，精确估算最佳闪光灯功率比例。
+                    </p>
+                    <div class="flex items-center text-gray-400 group">
+                        <span class="text-sm group-hover:text-gray-800 transition-colors duration-500 classic-link">探索工具</span>
+                    </div>
+                </div>
+            </a>
+            
             <!-- 摘星卡片 -->
             <a href="https://starcard.foxlaoy.com/" class="block">
                 <div class="card-classic rounded-2xl p-8 h-full">
-                    <div class="text-3xl mb-4">✨</div>
-                    <h2 class="text-2xl text-gray-900 mb-3 tracking-wide">摘星卡片</h2>
+                    <h2 class="tool-title text-2xl text-gray-900 mb-3 tracking-wide">
+                        <span class="tool-icon">✨</span>
+                        <span>摘星卡片</span>
+                    </h2>
                     <p class="text-gray-600 leading-relaxed mb-6">
                         简洁的一键文字分享工具，将精彩文字转化为精美卡片。智能排版，自动复制下载，让知识分享更有温度。
                     </p>
@@ -128,8 +171,10 @@
             <!-- 照片边框工具 -->
             <a href="https://toolpage.foxlaoy.com/" class="block">
                 <div class="card-classic rounded-2xl p-8 h-full">
-                    <div class="text-3xl mb-4">🖼️</div>
-                    <h2 class="text-2xl text-gray-900 mb-3 tracking-wide">照片边框工具</h2>
+                    <h2 class="tool-title text-2xl text-gray-900 mb-3 tracking-wide">
+                        <span class="tool-icon">🖼️</span>
+                        <span>照片边框工具</span>
+                    </h2>
                     <p class="text-gray-600 leading-relaxed mb-6">
                         两款简约的照片处理工具，让照片展示更有格调。支持本地处理，自定义边框，胶片信息添加。
                     </p>
