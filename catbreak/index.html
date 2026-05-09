@@ -16,17 +16,18 @@
             --accent: #b86f45;
         }
         * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { margin: 0; background: var(--bg); color: var(--ink); font-family: Georgia, "Times New Roman", "Noto Serif SC", serif; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { margin: 0; background: var(--bg); color: var(--ink); font-family: Georgia, "Times New Roman", "Noto Serif SC", serif; overflow-x: hidden; }
         a { color: inherit; text-decoration: none; }
         nav { position: fixed; inset: 0 0 auto; z-index: 10; background: rgba(252,251,249,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
         .nav-inner { max-width: 1120px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
         .brand { font-size: 18px; letter-spacing: .04em; }
         .nav-links { display: flex; gap: 22px; font-size: 14px; color: var(--muted); }
-        .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-        .hero { min-height: min(760px, calc(100vh - 72px)); padding: 128px 0 54px; display: grid; grid-template-columns: 1fr 430px; gap: 54px; align-items: center; }
-        .eyebrow { color: var(--accent); font-size: 14px; letter-spacing: .18em; text-transform: uppercase; }
-        h1 { font-size: clamp(44px, 7vw, 86px); line-height: .95; margin: 18px 0 22px; letter-spacing: 0; font-weight: 500; }
+        .container { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+        .hero { min-height: min(760px, calc(100vh - 72px)); padding: 128px 0 54px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 430px); gap: clamp(28px, 5vw, 54px); align-items: center; }
+        .hero > div { min-width: 0; }
+        .eyebrow { color: var(--accent); font-size: 14px; letter-spacing: .16em; }
+        h1 { font-size: clamp(48px, 6vw, 76px); line-height: 1.08; margin: 18px 0 22px; letter-spacing: 0; font-weight: 500; max-width: 8em; text-wrap: balance; }
         .lead { font-size: 20px; line-height: 1.9; color: var(--muted); max-width: 680px; }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
         .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); font-size: 15px; box-shadow: 0 12px 30px rgba(31,41,51,.04); }
@@ -54,7 +55,7 @@
         .card p, .step p, .cat-card p { color: var(--muted); line-height: 1.75; margin: 0; }
         .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
         .step-number { color: var(--accent); font-size: 13px; letter-spacing: .16em; margin-bottom: 12px; }
-        .cat-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .cat-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
         .cat-avatar { aspect-ratio: 1; display: grid; place-items: end center; background: #f6f1eb; border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
         .cat-avatar img { max-width: 96%; max-height: 96%; object-fit: contain; display: block; }
         .note { background: #2c2925; color: #fff; border-radius: 8px; padding: 34px; display: flex; justify-content: space-between; gap: 22px; align-items: center; }
@@ -67,6 +68,12 @@
             .nav-links { display: none; }
             .note { display: block; }
             section { padding: 44px 0; }
+        }
+        @media (min-width: 861px) and (max-width: 1180px) {
+            .hero { grid-template-columns: minmax(0, 1fr) minmax(340px, 390px); }
+            h1 { font-size: clamp(48px, 5.4vw, 68px); }
+            .lead { font-size: 18px; }
+            .screen { min-height: 520px; }
         }
     </style>
 </head>
@@ -86,8 +93,8 @@
         <section class="container hero">
             <div>
                 <div class="eyebrow">CatBreak for macOS</div>
-                <h1>猫猫来喊你休息一下</h1>
-                <p class="lead">CatBreak 会蹲在菜单栏里。工作太久时，猫猫就探头占住屏幕，喵一声提醒你起身、喝水、看看远处。</p>
+                <h1>猫猫喊你休息</h1>
+                <p class="lead">CatBreak 会蹲在菜单栏里。工作太久时，猫猫就来到屏幕前，喵一声提醒你起身、喝水、看看远处。</p>
                 <div class="hero-actions">
                     <a class="button primary" href="https://github.com/foxmuldery/catbreak">去 GitHub 看看</a>
                     <a class="button" href="#cats">看看值班猫</a>
@@ -104,8 +111,8 @@
                     <div>
                         <h2>泰格来巡逻了</h2>
                         <div class="countdown">09:35</div>
-                        <p>喵，先把屏幕还给眼睛休息一下。</p>
-                        <div class="cat-stage"><img src="https://raw.githubusercontent.com/foxmuldery/catbreak/main/CatBreak/Resources/Assets/taige-sturdy.png" alt="泰格"></div>
+                        <p>喵，先让眼睛休息一下。</p>
+                        <div class="cat-stage"><img src="assets/taige-sturdy.png" alt="泰格"></div>
                     </div>
                 </div>
             </div>
@@ -119,10 +126,10 @@
                 </div>
                 <div class="grid">
                     <article class="card"><div class="icon">⌛</div><h3>到点喵你</h3><p>默认工作 60 分钟后出现，休息 10 分钟后自动回到下一轮。</p></article>
-                    <article class="card"><div class="icon">▣</div><h3>大猫露脸</h3><p>休息时为每个屏幕铺上透明遮罩，显示大大的猫咪和倒计时。</p></article>
+                    <article class="card"><div class="icon">▣</div><h3>大猫露脸</h3><p>休息时每个屏幕都会出现大大的猫咪和倒计时，提醒你真的该离开座位了。</p></article>
                     <article class="card"><div class="icon">↯</div><h3>随手召唤</h3><p>想主动休息时，可以从菜单栏把猫猫叫出来，提前给自己一个小空档。</p></article>
-                    <article class="card"><div class="icon">⌫</div><h3>留好出口</h3><p>临时有事时可以中断休息，也可以按 Esc 或 Command + . 立刻退出遮罩。</p></article>
-                    <article class="card"><div class="icon">猫</div><h3>四只值班猫</h3><p>内置泰格、丽丽、大橘、Rose。今天想让谁来敲屏幕，就在菜单里切换。</p></article>
+                    <article class="card"><div class="icon">⌫</div><h3>留好出口</h3><p>临时有事时可以中断休息，也可以按 Esc 或 Command + . 立刻回到电脑前。</p></article>
+                    <article class="card"><div class="icon">猫</div><h3>六只值班猫</h3><p>内置泰格、丽丽、大橘、Rose、冰冰、基基。今天想让谁来喊你，就在菜单里切换。</p></article>
                     <article class="card"><div class="icon">⌘</div><h3>安静蹲栏</h3><p>没有 Dock 图标和主窗口，状态栏直接显示工作、休息、暂停和剩余时间。</p></article>
                 </div>
             </div>
@@ -132,20 +139,22 @@
                 <div class="section-title"><h2>四步被猫带走</h2><div class="ornament"><span>❧</span></div><p>不管你的工作流，但会认真管一下你的久坐。</p></div>
                 <div class="steps">
                     <div class="step"><div class="step-number">01</div><h3>开始干活</h3><p>启动后 CatBreak 蹲进菜单栏，开始悄悄数时间。</p></div>
-                    <div class="step"><div class="step-number">02</div><h3>猫猫出现</h3><p>到点后屏幕出现猫咪遮罩和休息倒计时。</p></div>
+                    <div class="step"><div class="step-number">02</div><h3>猫猫出现</h3><p>到点后猫咪来到屏幕前，休息倒计时也一起出现。</p></div>
                     <div class="step"><div class="step-number">03</div><h3>听猫的话</h3><p>起身、喝水、活动肩颈，把眼睛从屏幕上抱下来一会儿。</p></div>
-                    <div class="step"><div class="step-number">04</div><h3>猫猫退场</h3><p>休息结束后遮罩消失，下一轮工作计时重新开始。</p></div>
+                    <div class="step"><div class="step-number">04</div><h3>猫猫退场</h3><p>休息结束后猫猫回去，下一轮工作计时重新开始。</p></div>
                 </div>
             </div>
         </section>
         <section id="cats">
             <div class="container">
-                <div class="note"><div><h2>一个 CatBreak，四只值班猫</h2><p>泰格、丽丽、大橘、Rose 都住在同一个 App 里，今天谁上班，菜单里说了算。</p></div><code>make release</code></div>
+                <div class="note"><div><h2>一个 CatBreak，六只值班猫</h2><p>泰格、丽丽、大橘、Rose、冰冰、基基都住在同一个 App 里，今天谁上班，菜单里说了算。</p></div><code>make release</code></div>
                 <div class="cat-list" style="margin-top:18px">
-                    <div class="cat-card"><div class="cat-avatar"><img src="https://raw.githubusercontent.com/foxmuldery/catbreak/main/CatBreak/Resources/Assets/taige-sturdy.png" alt="泰格"></div><h3>泰格</h3><p>默认出场，稳稳把屏幕按住。</p></div>
-                    <div class="cat-card"><div class="cat-avatar"><img src="https://raw.githubusercontent.com/foxmuldery/catbreak/main/CatBreak/Resources/Assets/lili.png" alt="丽丽"></div><h3>丽丽</h3><p>温柔出爪，轻轻提醒你眨眨眼。</p></div>
-                    <div class="cat-card"><div class="cat-avatar"><img src="https://raw.githubusercontent.com/foxmuldery/catbreak/main/CatBreak/Resources/Assets/daju.png" alt="大橘"></div><h3>大橘</h3><p>份量很足，提醒也很有存在感。</p></div>
-                    <div class="cat-card"><div class="cat-avatar"><img src="https://raw.githubusercontent.com/foxmuldery/catbreak/main/CatBreak/Resources/Assets/rose.png" alt="Rose"></div><h3>Rose</h3><p>优雅值班，把休息说得很自然。</p></div>
+                    <div class="cat-card"><div class="cat-avatar"><img src="assets/taige-sturdy.png" alt="泰格"></div><h3>泰格</h3><p>默认出场，稳稳把你带去休息。</p></div>
+                    <div class="cat-card"><div class="cat-avatar"><img src="assets/lili.png" alt="丽丽"></div><h3>丽丽</h3><p>温柔出爪，轻轻提醒你眨眨眼。</p></div>
+                    <div class="cat-card"><div class="cat-avatar"><img src="assets/daju.png" alt="大橘"></div><h3>大橘</h3><p>份量很足，提醒也很有存在感。</p></div>
+                    <div class="cat-card"><div class="cat-avatar"><img src="assets/rose.png" alt="Rose"></div><h3>Rose</h3><p>优雅值班，把休息说得很自然。</p></div>
+                    <div class="cat-card"><div class="cat-avatar"><img src="assets/bingbing.png" alt="冰冰"></div><h3>冰冰</h3><p>灰蓝色东短气质，安静但很有压迫感。</p></div>
+                    <div class="cat-card"><div class="cat-avatar"><img src="assets/kiki.png" alt="基基"></div><h3>基基</h3><p>大耳朵、小胡子，认真问你还要不要继续坐着。</p></div>
                 </div>
             </div>
         </section>
