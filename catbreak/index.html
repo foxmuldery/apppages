@@ -60,6 +60,9 @@
         .cat-avatar img { max-width: 96%; max-height: 96%; object-fit: contain; display: block; }
         .note { background: #2c2925; color: #fff; border-radius: 8px; padding: 34px; }
         .note p { color: rgba(255,255,255,.72); line-height: 1.8; margin: 8px 0 0; }
+        .support-card { margin-top: 18px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #fff7ef; border: 1px solid rgba(184,111,69,.18); border-radius: 8px; padding: 26px; }
+        .support-card p { color: var(--muted); line-height: 1.8; margin: 8px 0 0; }
+        .button.support { background: var(--accent); color: #fff; border-color: transparent; box-shadow: 0 14px 30px rgba(184,111,69,.18); }
         footer { padding: 44px 24px; text-align: center; color: var(--muted); font-size: 14px; }
         @media (max-width: 860px) {
             .hero { grid-template-columns: 1fr; padding-top: 106px; }
@@ -67,6 +70,8 @@
             .grid, .steps, .cat-list { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             .note { display: block; }
+            .support-card { grid-template-columns: 1fr; }
+            .support-card .button { width: 100%; }
             section { padding: 44px 0; }
         }
         @media (min-width: 861px) and (max-width: 1180px) {
@@ -156,6 +161,13 @@
                     <div class="cat-card"><div class="cat-avatar"><img src="assets/rose.png" alt="Rose"></div><h3>Rose</h3><p>优雅值班，把休息说得很自然。</p></div>
                     <div class="cat-card"><div class="cat-avatar"><img src="assets/bingbing.png" alt="冰冰"></div><h3>冰冰</h3><p>灰蓝色东短气质，安静但很有压迫感。</p></div>
                     <div class="cat-card"><div class="cat-avatar"><img src="assets/kiki.png" alt="基基"></div><h3>基基</h3><p>大耳朵、小胡子，认真问你还要不要继续坐着。</p></div>
+                </div>
+                <div class="support-card" id="custom-cat">
+                    <div>
+                        <h3>你家猫也想来值班？</h3>
+                        <p>可以通过爱发电支持「我家猫也要入驻」定制，把你的猫猫做成 CatBreak 风格，让它亲自来霸占屏幕。</p>
+                    </div>
+                    <a class="button support" href="https://ifdian.net/a/foxlaoy" target="_blank" rel="noopener">我家猫也要入驻</a>
                 </div>
             </div>
         </section>
