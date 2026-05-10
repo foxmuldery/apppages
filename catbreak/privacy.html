@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CatBreak 隐私条款：CatBreak 不需要账号，不收集个人信息，也不会上传你的使用记录。">
+    <title>CatBreak - 隐私条款</title>
+    <style>
+        :root {
+            --bg: #fcfbf9;
+            --paper: #fff;
+            --ink: #1f2933;
+            --muted: #6f6a61;
+            --line: rgba(31,41,51,.08);
+            --accent: #b86f45;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--bg); color: var(--ink); font-family: Georgia, "Times New Roman", "Noto Serif SC", serif; }
+        a { color: inherit; text-decoration: none; }
+        nav { position: fixed; inset: 0 0 auto; z-index: 10; background: rgba(252,251,249,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
+        .nav-inner { max-width: 900px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+        .brand { font-size: 18px; letter-spacing: .04em; }
+        .nav-links { display: flex; gap: 22px; font-size: 14px; color: var(--muted); }
+        main { width: min(900px, calc(100% - 48px)); margin: 0 auto; padding: 128px 0 72px; }
+        .eyebrow { color: var(--accent); font-size: 14px; letter-spacing: .16em; }
+        h1 { font-size: clamp(42px, 7vw, 72px); line-height: 1.08; margin: 18px 0 24px; font-weight: 500; }
+        .lead { font-size: 20px; line-height: 1.9; color: var(--muted); max-width: 720px; }
+        section { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 30px; margin-top: 18px; }
+        h2 { font-size: 26px; margin: 0 0 12px; font-weight: 500; }
+        p, li { color: var(--muted); line-height: 1.85; font-size: 17px; }
+        ul { padding-left: 1.2em; margin: 0; }
+        footer { padding: 44px 24px; text-align: center; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+        @media (max-width: 720px) {
+            .nav-links { display: none; }
+            main { padding-top: 106px; }
+            section { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="brand" href="./">CatBreak</a>
+            <div class="nav-links">
+                <a href="./">返回首页</a>
+                <a href="https://github.com/foxmuldery/catbreak">GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="eyebrow">Privacy</div>
+        <h1>隐私条款</h1>
+        <p class="lead">CatBreak 是一只只负责提醒你休息的猫。它不需要账号，不追踪你，也不会把你的工作状态上传到任何地方。</p>
+
+        <section>
+            <h2>我们不收集什么</h2>
+            <ul>
+                <li>不收集你的姓名、邮箱、通讯录、位置等个人信息。</li>
+                <li>不读取你的文件、浏览记录、剪贴板内容或正在使用的 App。</li>
+                <li>不记录你每天工作了多久、休息了几次，也不上传这些数据。</li>
+                <li>不包含第三方统计、广告追踪或用户行为分析。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>本机保存的内容</h2>
+            <p>CatBreak 会在你的 Mac 本机保存必要设置，例如工作时长、休息时长、是否暂停、当前值班猫等。这些设置只用于让 App 正常工作，不会主动离开你的电脑。</p>
+        </section>
+
+        <section>
+            <h2>网站和下载</h2>
+            <p>当你访问官网或下载 App 时，网站托管服务可能会产生基础访问日志，例如访问时间、页面地址和浏览器请求信息。这类日志由托管服务用于保障网站稳定运行，CatBreak 不会用它来识别或追踪你。</p>
+        </section>
+
+        <section>
+            <h2>权限说明</h2>
+            <p>CatBreak 可能需要显示窗口、出现在屏幕上，才能在休息时间提醒你离开电脑。它不会借此查看你的屏幕内容，也不会录屏或截屏。</p>
+        </section>
+
+        <section>
+            <h2>条款更新</h2>
+            <p>如果未来 CatBreak 增加同步、统计或其他需要联网的功能，这份隐私条款会在功能上线前更新，并尽量用人话说明清楚。</p>
+        </section>
+    </main>
+    <footer>CatBreak © 2026 · 开发者：老y · <a href="./">返回 CatBreak 首页</a></footer>
+</body>
+</html>
