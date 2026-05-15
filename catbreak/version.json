@@ -1,12 +1,12 @@
 {
-  "version": "0.2.2",
-  "build": 4,
-  "releaseDate": "2026-05-13",
+  "version": "0.2.3",
+  "build": 5,
+  "releaseDate": "2026-05-15",
   "pageURL": "https://apps.foxlaoy.com/catbreak/",
   "downloadURL": "https://apps.foxlaoy.com/catbreak/downloads/CatBreak-mac.zip",
   "notes": [
-    "加入英俊作为第九只值班猫。",
-    "更新 Rose 的值班猫图像。",
-    "偏好设置里加入版本号和检查更新。"
+    "加入花花作为第十只值班猫。",
+    "官网猫猫介绍更新为十只值班猫。",
+    "刷新 macOS 下载包。"
   ]
 }
