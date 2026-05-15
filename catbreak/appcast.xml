@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>CatBreak</title>
+        <item>
+            <title>0.3.0</title>
+            <pubDate>Fri, 15 May 2026 14:57:00 +0800</pubDate>
+            <link>https://apps.foxlaoy.com/catbreak/</link>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>0.3.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>10.15</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>https://apps.foxlaoy.com/catbreak/downloads/CatBreak-mac.md</sparkle:releaseNotesLink>
+            <enclosure url="https://apps.foxlaoy.com/catbreak/downloads/CatBreak-mac.zip" length="12341301" type="application/octet-stream" sparkle:edSignature="IcEKcI+EUO/GVhpnCKe0Ukei6NZfA6K2bGj/Hlk8aLUpB06JtnowzingT6y6LVLlPR36pgqzJVJj+2dBPFGPDw=="/>
+        </item>
+    </channel>
+</rss>

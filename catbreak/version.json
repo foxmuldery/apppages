@@ -1,12 +1,13 @@
 {
-  "version": "0.2.3",
-  "build": 5,
+  "version": "0.3.0",
+  "build": 6,
   "releaseDate": "2026-05-15",
   "pageURL": "https://apps.foxlaoy.com/catbreak/",
   "downloadURL": "https://apps.foxlaoy.com/catbreak/downloads/CatBreak-mac.zip",
   "notes": [
-    "加入花花作为第十只值班猫。",
-    "官网猫猫介绍更新为十只值班猫。",
-    "刷新 macOS 下载包。"
+    "加入 Sparkle 自动更新能力。",
+    "这是过渡版本：安装一次后，未来更新会由 CatBreak 主动提醒。",
+    "切换猫咪时，当前休息画面会立刻换成新猫猫。",
+    "猫咪大小改为每只猫单独记忆，四档大小更容易看出区别。"
   ]
 }
