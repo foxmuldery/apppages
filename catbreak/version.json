@@ -1,12 +1,10 @@
 {
-  "version": "0.2.3",
-  "build": 5,
-  "releaseDate": "2026-05-15",
+  "version": "0.3.1",
+  "build": 7,
+  "releaseDate": "2026-05-19",
   "pageURL": "https://apps.foxlaoy.com/catbreak/",
   "downloadURL": "https://apps.foxlaoy.com/catbreak/downloads/CatBreak-mac.zip",
   "notes": [
-    "加入花花作为第十只值班猫。",
-    "官网猫猫介绍更新为十只值班猫。",
-    "刷新 macOS 下载包。"
+    "修复少数情况下休息结束后没有重新开始计时的问题。"
   ]
 }
