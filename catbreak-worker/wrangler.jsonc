@@ -1,0 +1,30 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "catbreak-download-stats",
+  "main": "src/index.js",
+  "compatibility_date": "2026-05-22",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "routes": [
+    {
+      "pattern": "apps.foxlaoy.com/catbreak/download",
+      "zone_name": "foxlaoy.com"
+    },
+    {
+      "pattern": "apps.foxlaoy.com/catbreak/stats.json",
+      "zone_name": "foxlaoy.com"
+    }
+  ],
+  "vars": {
+    "APP_VERSION": "0.3.1",
+    "DOWNLOAD_URL": "https://apps.foxlaoy.com/catbreak/downloads/CatBreak-mac.zip"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "DOWNLOAD_STATS",
+      "id": "87cea0dda3e64e04a612ef543d11d26c"
+    }
+  ]
+}
