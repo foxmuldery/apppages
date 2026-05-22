@@ -204,9 +204,9 @@
                 const version = stats.version || stats.currentVersion;
                 const format = new Intl.NumberFormat("zh-CN");
 
-                if (Number.isFinite(total) && total > 0) {
+                if (Number.isFinite(total) && total >= 0) {
                     el.textContent = `累计下载 ${format.format(total)} 次`;
-                    if (version && Number.isFinite(versionDownloads) && versionDownloads > 0) {
+                    if (version && Number.isFinite(versionDownloads) && versionDownloads >= 0) {
                         el.textContent += ` · ${version} 下载 ${format.format(versionDownloads)} 次`;
                     }
                     el.classList.add("is-visible");
