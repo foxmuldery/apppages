@@ -65,6 +65,8 @@
         .support-card p { color: var(--muted); line-height: 1.8; margin: 8px 0 0; }
         .button.support { background: var(--accent); color: #fff; border-color: transparent; box-shadow: 0 14px 30px rgba(184,111,69,.18); }
         footer { padding: 44px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+        .download-stats { display: none; margin-top: 12px; color: rgba(111,106,97,.62); font-size: 12px; font-variant-numeric: tabular-nums; }
+        .download-stats.is-visible { display: block; }
         @media (max-width: 860px) {
             .hero { grid-template-columns: 1fr; padding-top: 106px; }
             .screen { min-height: 500px; }
@@ -177,6 +179,41 @@
             </div>
         </section>
     </main>
-    <footer>CatBreak © 2026 · 开发者：老y · <a href="privacy.html">隐私条款</a></footer>
+    <footer>
+        <div>CatBreak © 2026 · 开发者：老y · <a href="privacy.html">隐私条款</a></div>
+        <div class="download-stats" data-download-stats aria-live="polite"></div>
+    </footer>
+    <script>
+        (async () => {
+            const el = document.querySelector("[data-download-stats]");
+            if (!el) return;
+
+            try {
+                const response = await fetch("/catbreak/stats.json", { cache: "no-store" });
+                if (!response.ok) return;
+
+                const stats = await response.json();
+                const total = Number(stats.totalDownloads ?? stats.total_downloads ?? stats.downloads ?? stats.total);
+                const versionDownloads = Number(
+                    stats.versionDownloads ??
+                    stats.version_downloads ??
+                    stats.currentVersionDownloads ??
+                    stats.current_version_downloads
+                );
+                const version = stats.version || stats.currentVersion;
+                const format = new Intl.NumberFormat("zh-CN");
+
+                if (Number.isFinite(total) && total > 0) {
+                    el.textContent = `累计下载 ${format.format(total)} 次`;
+                    if (version && Number.isFinite(versionDownloads) && versionDownloads > 0) {
+                        el.textContent += ` · ${version} 下载 ${format.format(versionDownloads)} 次`;
+                    }
+                    el.classList.add("is-visible");
+                }
+            } catch {
+                // Stats are optional; keep the footer quiet if the endpoint is unavailable.
+            }
+        })();
+    </script>
 </body>
 </html>
