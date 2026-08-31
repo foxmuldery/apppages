@@ -1,63 +1,162 @@
 const tools = {
   screenplay: {
+    sequence: "01",
     name: "兔狲剧本编辑器",
-    tagline: "编写、整理和打磨影视剧本。",
-    description: "集中完成剧本创作、结构整理与版本管理，为分镜和后续制作准备可靠文本。",
-    version: "1.0.17",
+    preview: "本地编写、自动排版、版本备份并导出剧本。",
+    tagline: "在本地编写、自动排版与版本备份剧本，并导出 Word / Markdown。",
+    description: "在本机完成剧本编写、场景与人物整理、自动排版和版本备份，并导出 Word 或 Markdown 交给后续制作。",
+    version: "1.0.26",
     icon: "assets/screenplay.png",
-  },
-  voice: {
-    name: "兔狲配音工作台",
-    tagline: "录音、配音与角色音色制作。",
-    description: "用于录音、配音和角色音色管理，整理可以直接进入后期流程的音频素材。",
-    version: "1.1.7",
-    icon: "assets/voice.png",
-  },
-  storyboard: {
-    name: "兔狲分镜工作台",
-    tagline: "设计镜头与分镜画面。",
-    description: "把剧本内容转成镜头和分镜设计，帮助建立清晰的画面制作计划。",
-    version: "1.0.6",
-    icon: "assets/storyboard.png",
-  },
-  "keyframe-workbench": {
-    name: "兔狲关键帧精调台",
-    tagline: "挑选关键画面，组织镜头节奏。",
-    description: "从镜头素材中挑选关键画面，组织画面顺序与镜头节奏，为视频制作建立清晰的视觉参考。",
-    version: "0.2.0",
-    icon: "assets/keyframe-workbench.png",
-  },
-  "keyframe-generator": {
-    name: "兔狲关键帧生成器",
-    tagline: "从剧本批量挑选并组织关键帧。",
-    description: "导入剧本和摄影圣经，批量筛选关键句并组织角色、场景、道具与关键帧计划；它是独立产品，不覆盖关键帧精调台。",
-    version: "0.3.0",
-    icon: "assets/keyframe-generator.png",
+    ports: {
+      workshop: {
+        range: "52125–52129",
+        note: "工作坊版从专用端口段启动，实际端口只在通过身份校验后显示。",
+        conflict: "若专用端口身份无法验证，工作坊会提示冲突，不会接管或结束其他服务。",
+      },
+      standalone: {
+        range: "由独立版管理",
+        note: "独立版端口规则不由工作坊推断，实际端口请在独立 App 内查看。",
+        conflict: "工作坊不会把工作坊版的端口状态套用到独立版。",
+      },
+    },
   },
   batchdesk: {
+    sequence: "02",
     name: "兔狲批量图生成台",
-    tagline: "批量生成并管理项目图片。",
-    description: "面向批量图像生成任务，统一组织生成内容、任务进度与成品素材。",
-    version: "1.1.8",
+    preview: "拆分提示语，批量生成、复查并导出项目图片。",
+    tagline: "导入文档拆成提示语，批量生成、复查并导出项目图片。",
+    description: "导入文档并拆分成提示语，批量生成图片、复查失败任务、整理结果并导出项目素材。",
+    version: "1.1.10",
     icon: "assets/batchdesk.png",
+    ports: {
+      workshop: {
+        range: "52155–52159",
+        note: "工作坊版只使用隔离的工作坊端口段。",
+        conflict: "首选端口被占用时会在 52155–52159 内换用可用端口；陌生服务不会被接管。",
+      },
+      standalone: {
+        range: "52150–52154",
+        note: "独立版和工作坊版使用不同端口段与运行目录。",
+        conflict: "旧端口或独立版端口冲突只会被提示，不会影响工作坊版进程。",
+      },
+    },
+  },
+  storyboard: {
+    sequence: "03",
+    name: "兔狲分镜工作台",
+    preview: "AI 拆解镜头、生成草图并导出通过分镜。",
+    tagline: "导入剧本，AI 拆解镜头并生成分镜草图，审核后导出通过分镜。",
+    description: "导入剧本后用 AI 拆解镜头并生成分镜草图，在工作台审核、调整，再导出已经通过的分镜。",
+    version: "1.0.7",
+    icon: "assets/storyboard.png",
+    ports: {
+      workshop: {
+        range: "启动时动态分配",
+        note: "工作坊版启动后由本机服务写入并验证实际端口。",
+        conflict: "动态端口身份无法验证或落入保留端口段时，工作坊会标为待检查或冲突。",
+      },
+      standalone: {
+        range: "启动时动态分配",
+        note: "独立版和工作坊版分别记录自己的动态端口。",
+        conflict: "工作坊只读取独立版的受信状态，不会接管它的服务。",
+      },
+    },
+  },
+  "keyframe-generator": {
+    sequence: "04",
+    name: "兔狲关键帧生成器",
+    preview: "筛选关键画面、绑定资产并编排生成顺序。",
+    tagline: "从剧本筛选关键画面，绑定资产并编排待生成的关键帧顺序。",
+    description: "导入剧本和摄影圣经，按项目、单集与场次隔离管理画面；配置 API 渠道与生图引擎，获取剧本名词推荐并绑定素材，支持二次确认删除和不含 API Key 的本地备份恢复。批量生图当前为安全演示，不会真实生成图片或触发付费 API。",
+    version: "0.4.0",
+    icon: "assets/keyframe-generator.png",
+    ports: {
+      workshop: {
+        range: "启动时动态分配",
+        note: "工作坊版启动后才显示经过验证的动态端口。",
+        conflict: "动态端口落入保留端口段或身份不匹配时会标为待检查或冲突。",
+      },
+      standalone: {
+        range: "启动时动态分配",
+        note: "独立版使用自己的状态与动态端口。",
+        conflict: "独立版端口未验证时会显示待检查，不会借用工作坊版结果。",
+      },
+    },
+  },
+  "keyframe-workbench": {
+    sequence: "05",
+    name: "兔狲关键帧精调台",
+    preview: "精调提示语与镜头参数，生成并返修 4K 关键帧。",
+    tagline: "组合人物、场景与分镜参考，精调提示语和镜头参数，生成并返修 4K 关键帧。",
+    description: "组合人物、场景与分镜参考，精调提示语、构图和镜头参数，生成并返修可用于制作的 4K 关键帧。",
+    version: "0.2.0",
+    icon: "assets/keyframe-workbench.png",
+    ports: {
+      workshop: {
+        range: "52165–52169",
+        note: "工作坊版使用隔离的工作坊端口段。",
+        conflict: "无法验证的端口占用会被标成冲突，不会被当成本工具实际端口。",
+      },
+      standalone: {
+        range: "52160–52164",
+        note: "独立版和工作坊版可以同时运行，端口段互不重叠。",
+        conflict: "旧端口 8942 只用于迁移冲突提示，不会被复用或终止。",
+      },
+    },
+  },
+  voice: {
+    sequence: "06",
+    name: "兔狲配音工作台",
+    preview: "音色复刻、AI 配音、逐句录音与配音包导出。",
+    tagline: "管理项目与角色，完成音色复刻、AI 配音、逐句录音和配音包导出。",
+    description: "集中管理项目、角色与声音素材，完成音色复刻、AI 配音、逐句录音，并导出可交付的配音包。",
+    version: "1.1.7",
+    icon: "assets/voice.png",
+    ports: {
+      workshop: {
+        range: "52135–52139",
+        note: "工作坊版只使用工作坊端口段。",
+        conflict: "工作坊端口冲突不会污染独立版状态，也不会结束陌生服务。",
+      },
+      standalone: {
+        range: "52130–52134",
+        note: "独立版使用独立的端口段和运行状态。",
+        conflict: "旧端口 8322 只用于冲突与迁移提示。",
+      },
+    },
   },
   video: {
+    sequence: "07",
     name: "兔狲视频工作台",
-    tagline: "生成、管理和交付视频镜头。",
-    description: "组织视频生成、镜头素材和质量检查，并衔接后期整理与交付。",
+    preview: "按分镜生成、三帧质检并导出 Resolve 时间线。",
+    tagline: "按分镜生成视频，管理任务与三帧质检，并导出 Resolve 时间线。",
+    description: "按分镜组织视频生成任务，管理镜头素材并完成首帧、中帧、尾帧质检，最后导出 Resolve 时间线。",
     version: "1.2.6",
     icon: "assets/video.png",
+    ports: {
+      workshop: {
+        range: "共用 52140–52144",
+        note: "两个版本共享经过身份校验的本机视频服务。",
+        conflict: "旧端口 8900 只用于冲突检测；陌生服务不会被复用或终止。",
+      },
+      standalone: {
+        range: "共用 52140–52144",
+        note: "两个版本共享同一受信视频服务，状态会明确标注为共用。",
+        conflict: "共享端口身份无法验证时，两列都会明确提示冲突。",
+      },
+    },
   },
 };
 
-function setTool(name) {
+function setTool(name, edition = "workshop") {
   const tool = tools[name];
-  if (!tool) return;
+  const editionDetails = tool?.ports?.[edition];
+  if (!tool || !editionDetails) return;
 
-  document.querySelectorAll("[data-tool]").forEach((button) => {
-    const selected = button.dataset.tool === name;
+  document.querySelectorAll("[data-tool][data-edition]").forEach((button) => {
+    const selected = button.dataset.tool === name && button.dataset.edition === edition;
     button.classList.toggle("selected", selected);
-    button.setAttribute("aria-selected", String(selected));
+    button.setAttribute("aria-pressed", String(selected));
   });
 
   document.querySelectorAll("[data-preview]").forEach((button) => {
@@ -69,22 +168,33 @@ function setTool(name) {
   document.querySelector("[data-tool-icon]").src = tool.icon;
   document.querySelector("[data-tool-name]").textContent = tool.name;
   document.querySelector("[data-tool-description]").textContent = tool.description;
-  document.querySelector("[data-tool-version]").textContent = `版本 ${tool.version}`;
+  document.querySelector("[data-tool-edition]").textContent = edition === "workshop" ? "工作坊版" : "独立版";
+  document.querySelector("[data-tool-status]").textContent = edition === "workshop" ? "状态由本机检测" : "独立版自行维护";
+  document.querySelector("[data-tool-version]").textContent = edition === "workshop" ? `版本 ${tool.version}` : "版本以本机安装为准";
+  document.querySelector("[data-tool-range]").textContent = editionDetails.range;
+  document.querySelector("[data-tool-actual]").textContent = edition === "workshop" ? "请在本机工作坊查看" : "请在独立 App 查看";
+  document.querySelector("[data-tool-port-note]").textContent = editionDetails.note;
+  document.querySelector("[data-tool-conflict]").textContent = editionDetails.conflict;
+  document.querySelector("[data-primary-action]").textContent = edition === "workshop" ? "安装或更新" : "独立版自行维护";
+  document.querySelector("[data-secondary-action]").textContent = edition === "workshop" ? "启动" : "工作坊只识别";
 
   document.querySelector("[data-preview-icon]").src = tool.icon;
   document.querySelector("[data-preview-name]").textContent = tool.name;
-  document.querySelector("[data-preview-description]").textContent = tool.tagline;
+  document.querySelector("[data-preview-description]").textContent = tool.preview;
   document.querySelector("[data-preview-version]").textContent = tool.version;
+  document.querySelector("[data-preview-port]").textContent = tool.ports.workshop.range;
 }
 
-document.querySelectorAll("[data-tool]").forEach((button) => {
-  button.addEventListener("click", () => setTool(button.dataset.tool));
+document.querySelectorAll("[data-tool][data-edition]").forEach((button) => {
+  button.addEventListener("click", () => setTool(button.dataset.tool, button.dataset.edition));
 });
 
 document.querySelectorAll("[data-preview]").forEach((button) => {
   button.setAttribute("aria-pressed", button.classList.contains("selected") ? "true" : "false");
-  button.addEventListener("click", () => setTool(button.dataset.preview));
+  button.addEventListener("click", () => setTool(button.dataset.preview, "workshop"));
 });
+
+setTool("screenplay", "workshop");
 
 const copyButton = document.querySelector("[data-copy-checksum]");
 copyButton?.addEventListener("click", async () => {

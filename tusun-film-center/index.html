@@ -94,25 +94,25 @@
               <div class="preview-heading"><strong>工具库</strong><span>7 款工具</span></div>
               <div class="preview-grid">
                 <button class="preview-app selected" type="button" data-preview="screenplay">
-                  <img src="assets/screenplay.png" alt="" /><span>剧本编辑器</span>
-                </button>
-                <button class="preview-app" type="button" data-preview="voice">
-                  <img src="assets/voice.png" alt="" /><span>配音工作台</span>
-                </button>
-                <button class="preview-app" type="button" data-preview="storyboard">
-                  <img src="assets/storyboard.png" alt="" /><span>分镜工作台</span>
-                </button>
-                <button class="preview-app" type="button" data-preview="keyframe-workbench">
-                  <img src="assets/keyframe-workbench.png" alt="" /><span>关键帧精调台</span>
-                </button>
-                <button class="preview-app" type="button" data-preview="keyframe-generator">
-                  <img src="assets/keyframe-generator.png" alt="" /><span>关键帧生成器</span>
+                  <span class="preview-sequence">01</span><img src="assets/screenplay.png" alt="" /><span>剧本编辑器</span>
                 </button>
                 <button class="preview-app" type="button" data-preview="batchdesk">
-                  <img src="assets/batchdesk.png" alt="" /><span>批量图生成台</span>
+                  <span class="preview-sequence">02</span><img src="assets/batchdesk.png" alt="" /><span>批量图生成台</span>
+                </button>
+                <button class="preview-app" type="button" data-preview="storyboard">
+                  <span class="preview-sequence">03</span><img src="assets/storyboard.png" alt="" /><span>分镜工作台</span>
+                </button>
+                <button class="preview-app" type="button" data-preview="keyframe-generator">
+                  <span class="preview-sequence">04</span><img src="assets/keyframe-generator.png" alt="" /><span>关键帧生成器</span>
+                </button>
+                <button class="preview-app" type="button" data-preview="keyframe-workbench">
+                  <span class="preview-sequence">05</span><img src="assets/keyframe-workbench.png" alt="" /><span>关键帧精调台</span>
+                </button>
+                <button class="preview-app" type="button" data-preview="voice">
+                  <span class="preview-sequence">06</span><img src="assets/voice.png" alt="" /><span>配音工作台</span>
                 </button>
                 <button class="preview-app" type="button" data-preview="video">
-                  <img src="assets/video.png" alt="" /><span>视频工作台</span>
+                  <span class="preview-sequence">07</span><img src="assets/video.png" alt="" /><span>视频工作台</span>
                 </button>
               </div>
             </div>
@@ -120,16 +120,18 @@
             <aside class="preview-detail">
               <img data-preview-icon src="assets/screenplay.png" alt="" />
               <h2 data-preview-name>兔狲剧本编辑器</h2>
-              <p data-preview-description>编写、整理和打磨影视剧本。</p>
+              <p data-preview-description>本地编写、自动排版、版本备份并导出剧本。</p>
               <dl>
-                <div><dt>状态</dt><dd><span class="status-dot"></span>已安装</dd></div>
-                <div><dt>版本</dt><dd data-preview-version>1.0.17</dd></div>
+                <div><dt>状态</dt><dd>由本机检测</dd></div>
+                <div><dt>版本</dt><dd data-preview-version>1.0.26</dd></div>
                 <div><dt>类型</dt><dd>工作坊版</dd></div>
+                <div><dt>端口段</dt><dd data-preview-port>52125–52129</dd></div>
+                <div><dt>实际端口</dt><dd>在 App 内查看</dd></div>
               </dl>
-              <button class="preview-action" type="button" tabindex="-1">
+              <span class="preview-action" aria-hidden="true">
                 <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>启动
-              </button>
-              <button class="preview-action muted" type="button" tabindex="-1">修复</button>
+              </span>
+              <span class="preview-action muted" aria-hidden="true">修复</span>
             </aside>
           </div>
         </div>
@@ -138,63 +140,69 @@
       <section class="section tools-section" id="tools">
         <div class="section-heading">
           <div>
-            <h2>七款工具，一个工作台</h2>
-            <p>工作坊负责安装与更新，独立版继续自由使用。</p>
+            <h2>七款工具，两种使用方式</h2>
+            <p>工作坊版统一安装与更新；独立版留在原处，由各自 App 维护。</p>
           </div>
           <span class="section-index" aria-hidden="true">01</span>
         </div>
 
         <div class="tool-browser">
-          <div class="tool-list" role="tablist" aria-label="工具列表">
-            <button class="tool-row selected" role="tab" aria-selected="true" data-tool="screenplay">
-              <img src="assets/screenplay.png" alt="" />
-              <span class="tool-copy"><strong>兔狲剧本编辑器</strong><small>编写、整理和打磨影视剧本</small></span>
-              <span class="edition-label">工作坊版 <i></i> 独立版</span>
-            </button>
-            <button class="tool-row" role="tab" aria-selected="false" data-tool="voice">
-              <img src="assets/voice.png" alt="" />
-              <span class="tool-copy"><strong>兔狲配音工作台</strong><small>录音、配音与角色音色制作</small></span>
-              <span class="edition-label">工作坊版 <i></i> 独立版</span>
-            </button>
-            <button class="tool-row" role="tab" aria-selected="false" data-tool="storyboard">
-              <img src="assets/storyboard.png" alt="" />
-              <span class="tool-copy"><strong>兔狲分镜工作台</strong><small>设计镜头与分镜画面</small></span>
-              <span class="edition-label">工作坊版 <i></i> 独立版</span>
-            </button>
-            <button class="tool-row" role="tab" aria-selected="false" data-tool="keyframe-workbench">
-              <img src="assets/keyframe-workbench.png" alt="" />
-              <span class="tool-copy"><strong>兔狲关键帧精调台</strong><small>挑选关键画面，组织镜头节奏</small></span>
-              <span class="edition-label">工作坊版 <i></i> 独立版</span>
-            </button>
-            <button class="tool-row" role="tab" aria-selected="false" data-tool="keyframe-generator">
-              <img src="assets/keyframe-generator.png" alt="" />
-              <span class="tool-copy"><strong>兔狲关键帧生成器</strong><small>从剧本批量挑选并组织关键帧</small></span>
-              <span class="edition-label">工作坊版 <i></i> 独立版</span>
-            </button>
-            <button class="tool-row" role="tab" aria-selected="false" data-tool="batchdesk">
-              <img src="assets/batchdesk.png" alt="" />
-              <span class="tool-copy"><strong>兔狲批量图生成台</strong><small>批量生成并管理项目图片</small></span>
-              <span class="edition-label">工作坊版 <i></i> 独立版</span>
-            </button>
-            <button class="tool-row" role="tab" aria-selected="false" data-tool="video">
-              <img src="assets/video.png" alt="" />
-              <span class="tool-copy"><strong>兔狲视频工作台</strong><small>生成、管理和交付视频镜头</small></span>
-              <span class="edition-label">工作坊版 <i></i> 独立版</span>
-            </button>
+          <div class="edition-columns" aria-label="工作坊版与独立版工具">
+            <section class="edition-column" aria-labelledby="workshop-edition-title">
+              <header class="edition-heading">
+                <span>统一管理</span>
+                <h3 id="workshop-edition-title">工作坊版</h3>
+                <p>安装、更新、启动、修复与卸载都在工作坊内完成。</p>
+              </header>
+              <div class="tool-list" data-edition-list="workshop">
+                <button class="tool-row selected" type="button" aria-label="01 兔狲剧本编辑器，工作坊版" aria-pressed="true" data-tool="screenplay" data-edition="workshop"><span class="tool-order">01</span><img src="assets/screenplay.png" alt="" /><span class="tool-copy"><strong>兔狲剧本编辑器</strong><small>本地编写、自动排版、版本备份并导出剧本</small></span></button>
+                <button class="tool-row" type="button" aria-label="02 兔狲批量图生成台，工作坊版" aria-pressed="false" data-tool="batchdesk" data-edition="workshop"><span class="tool-order">02</span><img src="assets/batchdesk.png" alt="" /><span class="tool-copy"><strong>兔狲批量图生成台</strong><small>拆分提示语，批量生成、复查并导出项目图片</small></span></button>
+                <button class="tool-row" type="button" aria-label="03 兔狲分镜工作台，工作坊版" aria-pressed="false" data-tool="storyboard" data-edition="workshop"><span class="tool-order">03</span><img src="assets/storyboard.png" alt="" /><span class="tool-copy"><strong>兔狲分镜工作台</strong><small>AI 拆解镜头、生成草图并导出通过分镜</small></span></button>
+                <button class="tool-row" type="button" aria-label="04 兔狲关键帧生成器，工作坊版" aria-pressed="false" data-tool="keyframe-generator" data-edition="workshop"><span class="tool-order">04</span><img src="assets/keyframe-generator.png" alt="" /><span class="tool-copy"><strong>兔狲关键帧生成器</strong><small>筛选关键画面、绑定资产并编排生成顺序</small></span></button>
+                <button class="tool-row" type="button" aria-label="05 兔狲关键帧精调台，工作坊版" aria-pressed="false" data-tool="keyframe-workbench" data-edition="workshop"><span class="tool-order">05</span><img src="assets/keyframe-workbench.png" alt="" /><span class="tool-copy"><strong>兔狲关键帧精调台</strong><small>精调提示语与镜头参数，生成并返修 4K 关键帧</small></span></button>
+                <button class="tool-row" type="button" aria-label="06 兔狲配音工作台，工作坊版" aria-pressed="false" data-tool="voice" data-edition="workshop"><span class="tool-order">06</span><img src="assets/voice.png" alt="" /><span class="tool-copy"><strong>兔狲配音工作台</strong><small>音色复刻、AI 配音、逐句录音与配音包导出</small></span></button>
+                <button class="tool-row" type="button" aria-label="07 兔狲视频工作台，工作坊版" aria-pressed="false" data-tool="video" data-edition="workshop"><span class="tool-order">07</span><img src="assets/video.png" alt="" /><span class="tool-copy"><strong>兔狲视频工作台</strong><small>按分镜生成、三帧质检并导出 Resolve 时间线</small></span></button>
+              </div>
+            </section>
+
+            <section class="edition-column standalone-column" aria-labelledby="standalone-edition-title">
+              <header class="edition-heading">
+                <span>保持独立</span>
+                <h3 id="standalone-edition-title">独立版</h3>
+                <p>工作坊只识别状态，不移动、覆盖或接管独立安装。</p>
+              </header>
+              <div class="tool-list" data-edition-list="standalone">
+                <button class="tool-row" type="button" aria-label="01 兔狲剧本编辑器，独立版" aria-pressed="false" data-tool="screenplay" data-edition="standalone"><span class="tool-order">01</span><img src="assets/screenplay.png" alt="" /><span class="tool-copy"><strong>兔狲剧本编辑器</strong><small>本地编写、自动排版、版本备份并导出剧本</small></span></button>
+                <button class="tool-row" type="button" aria-label="02 兔狲批量图生成台，独立版" aria-pressed="false" data-tool="batchdesk" data-edition="standalone"><span class="tool-order">02</span><img src="assets/batchdesk.png" alt="" /><span class="tool-copy"><strong>兔狲批量图生成台</strong><small>拆分提示语，批量生成、复查并导出项目图片</small></span></button>
+                <button class="tool-row" type="button" aria-label="03 兔狲分镜工作台，独立版" aria-pressed="false" data-tool="storyboard" data-edition="standalone"><span class="tool-order">03</span><img src="assets/storyboard.png" alt="" /><span class="tool-copy"><strong>兔狲分镜工作台</strong><small>AI 拆解镜头、生成草图并导出通过分镜</small></span></button>
+                <button class="tool-row" type="button" aria-label="04 兔狲关键帧生成器，独立版" aria-pressed="false" data-tool="keyframe-generator" data-edition="standalone"><span class="tool-order">04</span><img src="assets/keyframe-generator.png" alt="" /><span class="tool-copy"><strong>兔狲关键帧生成器</strong><small>筛选关键画面、绑定资产并编排生成顺序</small></span></button>
+                <button class="tool-row" type="button" aria-label="05 兔狲关键帧精调台，独立版" aria-pressed="false" data-tool="keyframe-workbench" data-edition="standalone"><span class="tool-order">05</span><img src="assets/keyframe-workbench.png" alt="" /><span class="tool-copy"><strong>兔狲关键帧精调台</strong><small>精调提示语与镜头参数，生成并返修 4K 关键帧</small></span></button>
+                <button class="tool-row" type="button" aria-label="06 兔狲配音工作台，独立版" aria-pressed="false" data-tool="voice" data-edition="standalone"><span class="tool-order">06</span><img src="assets/voice.png" alt="" /><span class="tool-copy"><strong>兔狲配音工作台</strong><small>音色复刻、AI 配音、逐句录音与配音包导出</small></span></button>
+                <button class="tool-row" type="button" aria-label="07 兔狲视频工作台，独立版" aria-pressed="false" data-tool="video" data-edition="standalone"><span class="tool-order">07</span><img src="assets/video.png" alt="" /><span class="tool-copy"><strong>兔狲视频工作台</strong><small>按分镜生成、三帧质检并导出 Resolve 时间线</small></span></button>
+              </div>
+            </section>
           </div>
 
-          <div class="tool-inspector" role="tabpanel" aria-live="polite">
+          <div class="tool-inspector" role="region" aria-label="工具详情示意" aria-live="polite">
+            <div class="inspector-kicker"><span data-tool-edition>工作坊版</span><i></i><span>界面示意</span></div>
             <img data-tool-icon src="assets/screenplay.png" alt="" />
             <h3 data-tool-name>兔狲剧本编辑器</h3>
-            <p data-tool-description>集中完成剧本创作、结构整理与版本管理，为分镜和后续制作准备可靠文本。</p>
+            <p data-tool-description>在本机完成剧本编写、场景与人物整理、自动排版和版本备份，并导出 Word 或 Markdown 交给后续制作。</p>
             <div class="tool-status">
-              <span><i></i>可安装</span><span data-tool-version>版本 1.0.17</span>
+              <span data-tool-status>状态由本机检测</span><span data-tool-version>版本 1.0.26</span>
+            </div>
+            <div class="port-panel">
+              <span><small>端口规则</small><strong data-tool-range>52125–52129</strong></span>
+              <span><small>实际端口</small><strong data-tool-actual>请在本机工作坊查看</strong></span>
+              <p data-tool-port-note>工作坊只显示通过身份校验的实际端口。</p>
+            </div>
+            <div class="conflict-note">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.8 20h18.4zM12 9v5m0 3h.01" /></svg>
+              <p><strong>发生冲突时</strong><span data-tool-conflict>若端口身份无法验证，工作坊会提示冲突，不会接管或结束其他服务。</span></p>
             </div>
             <div class="inspector-actions" aria-hidden="true">
-              <span class="button button-primary">安装或更新</span>
-              <span class="button button-outline">启动</span>
-              <span class="button button-subtle">修复</span>
-              <span class="button button-subtle">卸载</span>
+              <span class="button button-primary" data-primary-action>安装或更新</span>
+              <span class="button button-outline" data-secondary-action>启动</span>
             </div>
           </div>
         </div>
@@ -256,7 +264,7 @@
           <article>
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v12H4zM8 21h8M12 17v4" /></svg>
             <h3>数据留在本机</h3>
-            <p>工具与项目数据保留在本机。</p>
+            <p>项目文件和本地配置默认保存在本机；使用 AI 生成时，仅将所需内容发送到你配置的服务。</p>
           </article>
           <article>
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6zM9 12l2 2 4-5" /></svg>
