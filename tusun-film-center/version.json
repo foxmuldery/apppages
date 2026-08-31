@@ -1,11 +1,20 @@
 {
   "schema": "tusun.film-center-download/1",
-  "version": "0.3.8",
-  "build": "11",
+  "version": "0.4.1",
+  "build": "15",
   "minimum_macos": "14",
   "architecture": "arm64",
   "channel": "internal",
-  "download_url": "downloads/TusunAIWorkshop-v0.3.8-build11-macOS-arm64.zip",
-  "size_bytes": 33533849,
-  "sha256": "047a0a9bc369a3c189185f4c60922329a4ef3919a499473341538c17b58c79e6"
+  "download_url": "downloads/TusunAIWorkshop-v0.4.1-build15-macOS-arm64.zip",
+  "size_bytes": 33535970,
+  "sha256": "1237aa78ab8345fcf3139ed168cf64c269e0f9652b8a71f5cd69b75551c3e426",
+  "release_tag": "tusun-film-center-tools-current",
+  "release_base_url": "https://github.com/foxmuldery/apppages/releases/download/tusun-film-center-tools-current",
+  "catalog_url": "https://github.com/foxmuldery/apppages/releases/download/tusun-film-center-tools-current/TusunAIWorkshop-Catalog-current.zip",
+  "catalog_version": 26,
+  "catalog_size_bytes": 16172,
+  "catalog_sha256": "d95c79f100263578551e38cdd83dd4f1c4dcafc1399b380f9904ad202890e0e8",
+  "assets_manifest_url": "https://github.com/foxmuldery/apppages/releases/download/tusun-film-center-tools-current/TusunAIWorkshop-Assets-current.json",
+  "assets_manifest_size_bytes": 14301,
+  "assets_manifest_sha256": "fc2aa0126355cdbdc69cf2061489371d2e85219ad70e4fec741a993aa4cc3264"
 }

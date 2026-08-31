@@ -5,7 +5,7 @@ const tools = {
     preview: "在本地编写、自动排版与版本备份剧本，并导出 Word / Markdown。",
     tagline: "在本地编写、自动排版与版本备份剧本，并导出 Word / Markdown。",
     description: "在本机完成剧本编写、场景与人物整理、自动排版和版本备份，并导出 Word 或 Markdown 交给后续制作。",
-    version: "1.0.26",
+    version: "1.0.27",
     icon: "assets/screenplay.png",
     ports: {
       workshop: {
@@ -26,7 +26,7 @@ const tools = {
     preview: "导入文档拆成提示语，批量生成、复查并导出项目图片。",
     tagline: "导入文档拆成提示语，批量生成、复查并导出项目图片。",
     description: "导入文档并拆分成提示语，批量生成图片、复查失败任务、整理结果并导出项目素材。",
-    version: "1.1.10",
+    version: "1.1.15",
     icon: "assets/batchdesk.png",
     ports: {
       workshop: {
@@ -68,7 +68,7 @@ const tools = {
     preview: "从剧本筛选关键画面，绑定资产并编排待生成的关键帧顺序。",
     tagline: "从剧本筛选关键画面，绑定资产并编排待生成的关键帧顺序。",
     description: "导入剧本和摄影圣经，按项目、单集与场次隔离管理画面；配置 API 渠道与生图引擎，获取剧本名词推荐并绑定素材，支持二次确认删除和不含 API Key 的本地备份恢复。批量生图当前为安全演示，不会真实生成图片或触发付费 API。",
-    version: "0.4.0",
+    version: "0.6.0",
     icon: "assets/keyframe-generator.png",
     ports: {
       workshop: {
@@ -110,7 +110,7 @@ const tools = {
     preview: "管理项目与角色，完成音色复刻、AI 配音、逐句录音和配音包导出。",
     tagline: "管理项目与角色，完成音色复刻、AI 配音、逐句录音和配音包导出。",
     description: "集中管理项目、角色与声音素材，完成音色复刻、AI 配音、逐句录音，并导出可交付的配音包。",
-    version: "1.1.7",
+    version: "1.1.8",
     icon: "assets/voice.png",
     ports: {
       workshop: {
