@@ -1,11 +1,11 @@
 {
   "schema": "tusun.film-center-download/1",
-  "version": "0.3.6",
-  "build": "9",
+  "version": "0.3.7",
+  "build": "10",
   "minimum_macos": "14",
   "architecture": "arm64",
   "channel": "internal",
-  "download_url": "downloads/TusunAIWorkshop-v0.3.6-build9-macOS-arm64.zip",
-  "size_bytes": 33098080,
-  "sha256": "b2a8a3a7d909109ff78fdca96934118f93939487a0d115262b4d82dda7f346da"
+  "download_url": "downloads/TusunAIWorkshop-v0.3.7-build10-macOS-arm64.zip",
+  "size_bytes": 33525261,
+  "sha256": "49616e83ad01df3d05761967c642bc6175bfab0e6ba62b3ff364cbd0f7c02e34"
 }
