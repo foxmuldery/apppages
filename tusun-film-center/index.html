@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="一个入口，使用全套兔狲AI创作工作坊的强大工具。"
+    />
+    <meta name="theme-color" content="#0b0f12" />
+    <meta property="og:title" content="兔狲AI创作工作坊" />
+    <meta
+      property="og:description"
+      content="一个入口，使用全套兔狲AI创作工作坊的强大工具。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/tusun-film-center-icon.png" />
+    <title>兔狲AI创作工作坊 · 下载与部署</title>
+    <link rel="icon" href="assets/tusun-film-center-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header" data-site-header>
+      <a class="brand" href="#top" aria-label="兔狲AI创作工作坊首页">
+        <img src="assets/tusun-film-center-icon.png" alt="" width="48" height="48" />
+        <span>兔狲AI创作工作坊</span>
+      </a>
+      <nav aria-label="主导航">
+        <a href="#tools">工具库</a>
+        <a href="#install">安装指南</a>
+        <a href="#trust">安全与版本</a>
+      </nav>
+      <a class="button button-small button-primary" href="#download">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14" /></svg>
+        下载 macOS 版
+      </a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <h1>一个入口，使用全套兔狲AI创作工作坊的强大工具</h1>
+          <p class="hero-lede">
+            统一下载、安装、更新、启动、修复与卸载。工作坊版由中心管理，独立版保持原样。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#download">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14" /></svg>
+              下载 macOS 版
+            </a>
+            <a class="button button-secondary" href="#install">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6zM14 3v4h4M9 12h6M9 16h6" /></svg>
+              查看安装说明
+            </a>
+          </div>
+          <p class="release-line">
+            <span data-min-system>macOS 14+</span><i></i><span>Apple Silicon</span><i></i
+            ><span data-version>v0.3.6 Build 9</span>
+          </p>
+          <p class="internal-note">当前为内部测试版，适用于团队内部安装与验收。</p>
+        </div>
+
+        <div class="app-window" aria-label="工作坊工具库界面预览">
+          <div class="window-titlebar">
+            <span class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span>兔狲AI创作工作坊</span>
+            <span class="titlebar-mark" aria-hidden="true">
+              <img src="assets/tusun-film-center-icon.png" alt="" />
+            </span>
+          </div>
+          <div class="window-body">
+            <aside class="preview-sidebar" aria-label="工作坊预览导航">
+              <span class="preview-nav active">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" /></svg>
+                工具库
+              </span>
+              <span class="preview-nav">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14" /></svg>
+                更新
+              </span>
+              <span class="preview-nav">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg>
+                已安装
+              </span>
+              <span class="preview-nav">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                运行中
+              </span>
+            </aside>
+
+            <div class="preview-library">
+              <div class="preview-heading"><strong>工具库</strong><span>7 款工具</span></div>
+              <div class="preview-grid">
+                <button class="preview-app selected" type="button" data-preview="screenplay">
+                  <img src="assets/screenplay.png" alt="" /><span>剧本编辑器</span>
+                </button>
+                <button class="preview-app" type="button" data-preview="voice">
+                  <img src="assets/voice.png" alt="" /><span>配音工作台</span>
+                </button>
+                <button class="preview-app" type="button" data-preview="storyboard">
+                  <img src="assets/storyboard.png" alt="" /><span>分镜工作台</span>
+                </button>
+                <button class="preview-app" type="button" data-preview="keyframe-workbench">
+                  <img src="assets/keyframe-workbench.png" alt="" /><span>关键帧精调台</span>
+                </button>
+                <button class="preview-app" type="button" data-preview="keyframe-generator">
+                  <img src="assets/keyframe-generator.png" alt="" /><span>关键帧生成器</span>
+                </button>
+                <button class="preview-app" type="button" data-preview="batchdesk">
+                  <img src="assets/batchdesk.png" alt="" /><span>批量图生成台</span>
+                </button>
+                <button class="preview-app" type="button" data-preview="video">
+                  <img src="assets/video.png" alt="" /><span>视频工作台</span>
+                </button>
+              </div>
+            </div>
+
+            <aside class="preview-detail">
+              <img data-preview-icon src="assets/screenplay.png" alt="" />
+              <h2 data-preview-name>兔狲剧本编辑器</h2>
+              <p data-preview-description>编写、整理和打磨影视剧本。</p>
+              <dl>
+                <div><dt>状态</dt><dd><span class="status-dot"></span>已安装</dd></div>
+                <div><dt>版本</dt><dd data-preview-version>1.0.17</dd></div>
+                <div><dt>类型</dt><dd>工作坊版</dd></div>
+              </dl>
+              <button class="preview-action" type="button" tabindex="-1">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>启动
+              </button>
+              <button class="preview-action muted" type="button" tabindex="-1">修复</button>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tools-section" id="tools">
+        <div class="section-heading">
+          <div>
+            <h2>七款工具，一个工作台</h2>
+            <p>工作坊负责安装与更新，独立版继续自由使用。</p>
+          </div>
+          <span class="section-index" aria-hidden="true">01</span>
+        </div>
+
+        <div class="tool-browser">
+          <div class="tool-list" role="tablist" aria-label="工具列表">
+            <button class="tool-row selected" role="tab" aria-selected="true" data-tool="screenplay">
+              <img src="assets/screenplay.png" alt="" />
+              <span class="tool-copy"><strong>兔狲剧本编辑器</strong><small>编写、整理和打磨影视剧本</small></span>
+              <span class="edition-label">工作坊版 <i></i> 独立版</span>
+            </button>
+            <button class="tool-row" role="tab" aria-selected="false" data-tool="voice">
+              <img src="assets/voice.png" alt="" />
+              <span class="tool-copy"><strong>兔狲配音工作台</strong><small>录音、配音与角色音色制作</small></span>
+              <span class="edition-label">工作坊版 <i></i> 独立版</span>
+            </button>
+            <button class="tool-row" role="tab" aria-selected="false" data-tool="storyboard">
+              <img src="assets/storyboard.png" alt="" />
+              <span class="tool-copy"><strong>兔狲分镜工作台</strong><small>设计镜头与分镜画面</small></span>
+              <span class="edition-label">工作坊版 <i></i> 独立版</span>
+            </button>
+            <button class="tool-row" role="tab" aria-selected="false" data-tool="keyframe-workbench">
+              <img src="assets/keyframe-workbench.png" alt="" />
+              <span class="tool-copy"><strong>兔狲关键帧精调台</strong><small>挑选关键画面，组织镜头节奏</small></span>
+              <span class="edition-label">工作坊版 <i></i> 独立版</span>
+            </button>
+            <button class="tool-row" role="tab" aria-selected="false" data-tool="keyframe-generator">
+              <img src="assets/keyframe-generator.png" alt="" />
+              <span class="tool-copy"><strong>兔狲关键帧生成器</strong><small>从剧本批量挑选并组织关键帧</small></span>
+              <span class="edition-label">工作坊版 <i></i> 独立版</span>
+            </button>
+            <button class="tool-row" role="tab" aria-selected="false" data-tool="batchdesk">
+              <img src="assets/batchdesk.png" alt="" />
+              <span class="tool-copy"><strong>兔狲批量图生成台</strong><small>批量生成并管理项目图片</small></span>
+              <span class="edition-label">工作坊版 <i></i> 独立版</span>
+            </button>
+            <button class="tool-row" role="tab" aria-selected="false" data-tool="video">
+              <img src="assets/video.png" alt="" />
+              <span class="tool-copy"><strong>兔狲视频工作台</strong><small>生成、管理和交付视频镜头</small></span>
+              <span class="edition-label">工作坊版 <i></i> 独立版</span>
+            </button>
+          </div>
+
+          <div class="tool-inspector" role="tabpanel" aria-live="polite">
+            <img data-tool-icon src="assets/screenplay.png" alt="" />
+            <h3 data-tool-name>兔狲剧本编辑器</h3>
+            <p data-tool-description>集中完成剧本创作、结构整理与版本管理，为分镜和后续制作准备可靠文本。</p>
+            <div class="tool-status">
+              <span><i></i>可安装</span><span data-tool-version>版本 1.0.17</span>
+            </div>
+            <div class="inspector-actions" aria-hidden="true">
+              <span class="button button-primary">安装或更新</span>
+              <span class="button button-outline">启动</span>
+              <span class="button button-subtle">修复</span>
+              <span class="button button-subtle">卸载</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section install-section" id="install">
+        <div class="section-heading">
+          <div><h2>三步开始</h2><p>安装一次，之后在工具库里统一进入。</p></div>
+          <span class="section-index" aria-hidden="true">02</span>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-number">1</span>
+            <div><h3>下载工作坊</h3><p>获取适用于 Apple Silicon 的最新版本。</p></div>
+          </li>
+          <li>
+            <span class="step-number">2</span>
+            <div><h3>移到应用程序</h3><p>解压后将 App 拖入 Applications。</p></div>
+          </li>
+          <li>
+            <span class="step-number">3</span>
+            <div><h3>打开并安装工具</h3><p>首次打开完成确认，之后在工具库统一管理。</p></div>
+          </li>
+        </ol>
+        <div class="gatekeeper-note">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6zM9 12l2 2 4-5" /></svg>
+          <p><strong>首次打开：</strong>当前为内部 ad-hoc 签名版。若 macOS 阻止打开，请在 Finder 中右键 App，选择“打开”并完成一次确认。</p>
+        </div>
+      </section>
+
+      <section class="section download-section" id="download">
+        <div class="download-panel">
+          <div class="download-product">
+            <img src="assets/tusun-film-center-icon.png" alt="" />
+            <div><h2>兔狲AI创作工作坊</h2><p><span data-version>v0.3.6 Build 9</span> · <span data-size>33.1 MB</span></p></div>
+          </div>
+          <div class="download-requirements"><span data-min-system>macOS 14+</span><span>Apple Silicon</span></div>
+          <a class="button button-primary download-button" data-download-link href="downloads/TusunAIWorkshop-v0.3.6-build9-macOS-arm64.zip" download>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14" /></svg>
+            下载 ZIP
+          </a>
+          <div class="checksum">
+            <span>SHA-256</span>
+            <code data-checksum>b2a8a3a7d909109ff78fdca96934118f93939487a0d115262b4d82dda7f346da</code>
+            <button type="button" data-copy-checksum>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 8h10v12H9zM5 4h10v4M5 4v12h4" /></svg>
+              <span>复制</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section trust-section" id="trust">
+        <div class="trust-title">
+          <h2>本机优先，<br />更新可验证</h2>
+          <p>中心只管理工作坊版，不移动或覆盖你已有的独立版。</p>
+        </div>
+        <div class="trust-points">
+          <article>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v12H4zM8 21h8M12 17v4" /></svg>
+            <h3>数据留在本机</h3>
+            <p>工具与项目数据保留在本机。</p>
+          </article>
+          <article>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6zM9 12l2 2 4-5" /></svg>
+            <h3>组件逐项校验</h3>
+            <p>组件来自固定签名目录并逐项校验。</p>
+          </article>
+          <article>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 8a4 4 0 1 0-3.7 4L9 14.3V17H6v3H3v-3.3l6-6A4 4 0 0 0 15 8z" /></svg>
+            <h3>Key 不进入诊断</h3>
+            <p>API Key 不写入日志、诊断或组件包。</p>
+          </article>
+        </div>
+        <div class="version-facts">
+          <span><small>当前版本</small><strong data-version>v0.3.6 Build 9</strong></span>
+          <span><small>系统要求</small><strong data-min-system>macOS 14+</strong></span>
+          <span><small>处理器</small><strong>Apple Silicon</strong></span>
+          <span><small>发行通道</small><strong>内部测试</strong></span>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand footer-brand" href="#top">
+        <img src="assets/tusun-film-center-icon.png" alt="" width="44" height="44" />
+        <span>兔狲AI创作工作坊</span>
+      </a>
+      <p>内部测试版 · 统一下载与部署入口</p>
+      <a href="https://github.com/foxmuldery/tusun-film-center" rel="noreferrer">GitHub</a>
+    </footer>
+  </body>
+</html>
