@@ -2,7 +2,7 @@ const tools = {
   screenplay: {
     sequence: "01",
     name: "兔狲剧本编辑器",
-    preview: "本地编写、自动排版、版本备份并导出剧本。",
+    preview: "在本地编写、自动排版与版本备份剧本，并导出 Word / Markdown。",
     tagline: "在本地编写、自动排版与版本备份剧本，并导出 Word / Markdown。",
     description: "在本机完成剧本编写、场景与人物整理、自动排版和版本备份，并导出 Word 或 Markdown 交给后续制作。",
     version: "1.0.26",
@@ -23,7 +23,7 @@ const tools = {
   batchdesk: {
     sequence: "02",
     name: "兔狲批量图生成台",
-    preview: "拆分提示语，批量生成、复查并导出项目图片。",
+    preview: "导入文档拆成提示语，批量生成、复查并导出项目图片。",
     tagline: "导入文档拆成提示语，批量生成、复查并导出项目图片。",
     description: "导入文档并拆分成提示语，批量生成图片、复查失败任务、整理结果并导出项目素材。",
     version: "1.1.10",
@@ -44,7 +44,7 @@ const tools = {
   storyboard: {
     sequence: "03",
     name: "兔狲分镜工作台",
-    preview: "AI 拆解镜头、生成草图并导出通过分镜。",
+    preview: "导入剧本，AI 拆解镜头并生成分镜草图，审核后导出通过分镜。",
     tagline: "导入剧本，AI 拆解镜头并生成分镜草图，审核后导出通过分镜。",
     description: "导入剧本后用 AI 拆解镜头并生成分镜草图，在工作台审核、调整，再导出已经通过的分镜。",
     version: "1.0.7",
@@ -65,7 +65,7 @@ const tools = {
   "keyframe-generator": {
     sequence: "04",
     name: "兔狲关键帧生成器",
-    preview: "筛选关键画面、绑定资产并编排生成顺序。",
+    preview: "从剧本筛选关键画面，绑定资产并编排待生成的关键帧顺序。",
     tagline: "从剧本筛选关键画面，绑定资产并编排待生成的关键帧顺序。",
     description: "导入剧本和摄影圣经，按项目、单集与场次隔离管理画面；配置 API 渠道与生图引擎，获取剧本名词推荐并绑定素材，支持二次确认删除和不含 API Key 的本地备份恢复。批量生图当前为安全演示，不会真实生成图片或触发付费 API。",
     version: "0.4.0",
@@ -86,7 +86,7 @@ const tools = {
   "keyframe-workbench": {
     sequence: "05",
     name: "兔狲关键帧精调台",
-    preview: "精调提示语与镜头参数，生成并返修 4K 关键帧。",
+    preview: "组合人物、场景与分镜参考，精调提示语和镜头参数，生成并返修 4K 关键帧。",
     tagline: "组合人物、场景与分镜参考，精调提示语和镜头参数，生成并返修 4K 关键帧。",
     description: "组合人物、场景与分镜参考，精调提示语、构图和镜头参数，生成并返修可用于制作的 4K 关键帧。",
     version: "0.2.0",
@@ -107,7 +107,7 @@ const tools = {
   voice: {
     sequence: "06",
     name: "兔狲配音工作台",
-    preview: "音色复刻、AI 配音、逐句录音与配音包导出。",
+    preview: "管理项目与角色，完成音色复刻、AI 配音、逐句录音和配音包导出。",
     tagline: "管理项目与角色，完成音色复刻、AI 配音、逐句录音和配音包导出。",
     description: "集中管理项目、角色与声音素材，完成音色复刻、AI 配音、逐句录音，并导出可交付的配音包。",
     version: "1.1.7",
@@ -128,7 +128,7 @@ const tools = {
   video: {
     sequence: "07",
     name: "兔狲视频工作台",
-    preview: "按分镜生成、三帧质检并导出 Resolve 时间线。",
+    preview: "按分镜生成视频，管理任务与三帧质检，并导出 Resolve 时间线。",
     tagline: "按分镜生成视频，管理任务与三帧质检，并导出 Resolve 时间线。",
     description: "按分镜组织视频生成任务，管理镜头素材并完成首帧、中帧、尾帧质检，最后导出 Resolve 时间线。",
     version: "1.2.6",
