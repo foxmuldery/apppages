@@ -47,7 +47,7 @@ const tools = {
     preview: "导入剧本，AI 拆解镜头并生成分镜草图，审核后导出通过分镜。",
     tagline: "导入剧本，AI 拆解镜头并生成分镜草图，审核后导出通过分镜。",
     description: "导入剧本后用 AI 拆解镜头并生成分镜草图，在工作台审核、调整，再导出已经通过的分镜。",
-    version: "1.0.7",
+    version: "1.0.8",
     icon: "assets/storyboard.png",
     ports: {
       workshop: {
@@ -68,7 +68,7 @@ const tools = {
     preview: "从剧本筛选关键画面，绑定资产并编排待生成的关键帧顺序。",
     tagline: "从剧本筛选关键画面，绑定资产并编排待生成的关键帧顺序。",
     description: "导入剧本和摄影圣经，按项目、单集与场次隔离管理画面；配置 API 渠道与生图引擎，获取剧本名词推荐并绑定素材，支持二次确认删除和不含 API Key 的本地备份恢复。批量生图当前为安全演示，不会真实生成图片或触发付费 API。",
-    version: "0.6.0",
+    version: "0.6.1",
     icon: "assets/keyframe-generator.png",
     ports: {
       workshop: {
@@ -89,7 +89,7 @@ const tools = {
     preview: "组合人物、场景与分镜参考，精调提示语和镜头参数，生成并返修 4K 关键帧。",
     tagline: "组合人物、场景与分镜参考，精调提示语和镜头参数，生成并返修 4K 关键帧。",
     description: "组合人物、场景与分镜参考，精调提示语、构图和镜头参数，生成并返修可用于制作的 4K 关键帧。",
-    version: "0.2.0",
+    version: "0.2.1",
     icon: "assets/keyframe-workbench.png",
     ports: {
       workshop: {
@@ -131,7 +131,7 @@ const tools = {
     preview: "按分镜生成视频，管理任务与三帧质检，并导出 Resolve 时间线。",
     tagline: "按分镜生成视频，管理任务与三帧质检，并导出 Resolve 时间线。",
     description: "按分镜组织视频生成任务，管理镜头素材并完成首帧、中帧、尾帧质检，最后导出 Resolve 时间线。",
-    version: "1.2.6",
+    version: "1.2.8",
     icon: "assets/video.png",
     ports: {
       workshop: {
