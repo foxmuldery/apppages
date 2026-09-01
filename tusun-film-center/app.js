@@ -3,9 +3,10 @@ const tools = {
     sequence: "01",
     name: "兔狲剧本编辑器",
     preview: "在本地编写、自动排版与版本备份剧本，并导出 Word / Markdown。",
-    tagline: "在本地编写、自动排版与版本备份剧本，并导出 Word / Markdown。",
+    tagline: "在本地编写、自动排版与版本备份剧本，并导出 Word / Markdown",
     description: "在本机完成剧本编写、场景与人物整理、自动排版和版本备份，并导出 Word 或 Markdown 交给后续制作。",
-    version: "1.0.26",
+    version: "1.0.27",
+    build: null,
     icon: "assets/screenplay.png",
     ports: {
       workshop: {
@@ -24,9 +25,10 @@ const tools = {
     sequence: "02",
     name: "兔狲批量图生成台",
     preview: "导入文档拆成提示语，批量生成、复查并导出项目图片。",
-    tagline: "导入文档拆成提示语，批量生成、复查并导出项目图片。",
+    tagline: "导入文档拆成提示语，批量生成、复查并导出项目图片",
     description: "导入文档并拆分成提示语，批量生成图片、复查失败任务、整理结果并导出项目素材。",
-    version: "1.1.10",
+    version: "1.1.16",
+    build: "32",
     icon: "assets/batchdesk.png",
     ports: {
       workshop: {
@@ -45,9 +47,10 @@ const tools = {
     sequence: "03",
     name: "兔狲分镜工作台",
     preview: "导入剧本，AI 拆解镜头并生成分镜草图，审核后导出通过分镜。",
-    tagline: "导入剧本，AI 拆解镜头并生成分镜草图，审核后导出通过分镜。",
+    tagline: "导入剧本，AI 拆解镜头并生成分镜草图，审核后导出通过分镜",
     description: "导入剧本后用 AI 拆解镜头并生成分镜草图，在工作台审核、调整，再导出已经通过的分镜。",
-    version: "1.0.7",
+    version: "1.0.9",
+    build: "124",
     icon: "assets/storyboard.png",
     ports: {
       workshop: {
@@ -66,9 +69,10 @@ const tools = {
     sequence: "04",
     name: "兔狲关键帧生成器",
     preview: "从剧本筛选关键画面，绑定资产并编排待生成的关键帧顺序。",
-    tagline: "从剧本筛选关键画面，绑定资产并编排待生成的关键帧顺序。",
-    description: "导入剧本和摄影圣经，按项目、单集与场次隔离管理画面；配置 API 渠道与生图引擎，获取剧本名词推荐并绑定素材，支持二次确认删除和不含 API Key 的本地备份恢复。批量生图当前为安全演示，不会真实生成图片或触发付费 API。",
-    version: "0.4.0",
+    tagline: "从剧本筛选关键画面，绑定资产并编排待生成的关键帧顺序",
+    description: "导入剧本并可选附加摄影/美术圣经，按项目、单集与场次隔离管理画面；圣经缺失时使用保守摄影规则且不虚构世界观。支持 API 渠道、生图引擎、剧本名词推荐、素材绑定、二次确认删除和不含 API Key 的本地备份恢复。批量生图当前为安全演示，不会真实生成图片或触发付费 API。",
+    version: "0.6.2",
+    build: "27",
     icon: "assets/keyframe-generator.png",
     ports: {
       workshop: {
@@ -87,9 +91,10 @@ const tools = {
     sequence: "05",
     name: "兔狲关键帧精调台",
     preview: "组合人物、场景与分镜参考，精调提示语和镜头参数，生成并返修 4K 关键帧。",
-    tagline: "组合人物、场景与分镜参考，精调提示语和镜头参数，生成并返修 4K 关键帧。",
+    tagline: "组合人物、场景与分镜参考，精调提示语和镜头参数，生成并返修 4K 关键帧",
     description: "组合人物、场景与分镜参考，精调提示语、构图和镜头参数，生成并返修可用于制作的 4K 关键帧。",
-    version: "0.2.0",
+    version: "0.2.1",
+    build: "6",
     icon: "assets/keyframe-workbench.png",
     ports: {
       workshop: {
@@ -108,9 +113,10 @@ const tools = {
     sequence: "06",
     name: "兔狲配音工作台",
     preview: "管理项目与角色，完成音色复刻、AI 配音、逐句录音和配音包导出。",
-    tagline: "管理项目与角色，完成音色复刻、AI 配音、逐句录音和配音包导出。",
+    tagline: "管理项目与角色，完成音色复刻、AI 配音、逐句录音和配音包导出",
     description: "集中管理项目、角色与声音素材，完成音色复刻、AI 配音、逐句录音，并导出可交付的配音包。",
-    version: "1.1.7",
+    version: "1.1.8",
+    build: "8",
     icon: "assets/voice.png",
     ports: {
       workshop: {
@@ -128,19 +134,20 @@ const tools = {
   video: {
     sequence: "07",
     name: "兔狲视频工作台",
-    preview: "按分镜生成视频，管理任务与三帧质检，并导出 Resolve 时间线。",
-    tagline: "按分镜生成视频，管理任务与三帧质检，并导出 Resolve 时间线。",
-    description: "按分镜组织视频生成任务，管理镜头素材并完成首帧、中帧、尾帧质检，最后导出 Resolve 时间线。",
-    version: "1.2.6",
+    preview: "按分镜或素材文件夹创建视频任务，管理三帧质检并导出 Resolve 时间线。",
+    tagline: "按分镜或素材文件夹创建视频任务，管理三帧质检并导出 Resolve 时间线",
+    description: "按分镜或素材文件夹组织视频生成任务，自动配对提示语与图片、音频、视频素材，管理首帧、中帧、尾帧质检，最后导出 Resolve 时间线。",
+    version: "1.2.9",
+    build: "12",
     icon: "assets/video.png",
     ports: {
       workshop: {
-        range: "共用 52140–52144",
+        range: "共用端口段 52140–52144",
         note: "两个版本共享经过身份校验的本机视频服务。",
         conflict: "旧端口 8900 只用于冲突检测；陌生服务不会被复用或终止。",
       },
       standalone: {
-        range: "共用 52140–52144",
+        range: "共用端口段 52140–52144",
         note: "两个版本共享同一受信视频服务，状态会明确标注为共用。",
         conflict: "共享端口身份无法验证时，两列都会明确提示冲突。",
       },
@@ -170,7 +177,8 @@ function setTool(name, edition = "workshop") {
   document.querySelector("[data-tool-description]").textContent = tool.description;
   document.querySelector("[data-tool-edition]").textContent = edition === "workshop" ? "工作坊版" : "独立版";
   document.querySelector("[data-tool-status]").textContent = edition === "workshop" ? "状态由本机检测" : "独立版自行维护";
-  document.querySelector("[data-tool-version]").textContent = edition === "workshop" ? `版本 ${tool.version}` : "版本以本机安装为准";
+  const versionLabel = tool.build ? `${tool.version} / Build ${tool.build}` : tool.version;
+  document.querySelector("[data-tool-version]").textContent = edition === "workshop" ? `版本 ${versionLabel}` : "版本以本机安装为准";
   document.querySelector("[data-tool-range]").textContent = editionDetails.range;
   document.querySelector("[data-tool-actual]").textContent = edition === "workshop" ? "请在本机工作坊查看" : "请在独立 App 查看";
   document.querySelector("[data-tool-port-note]").textContent = editionDetails.note;
@@ -181,7 +189,7 @@ function setTool(name, edition = "workshop") {
   document.querySelector("[data-preview-icon]").src = tool.icon;
   document.querySelector("[data-preview-name]").textContent = tool.name;
   document.querySelector("[data-preview-description]").textContent = tool.preview;
-  document.querySelector("[data-preview-version]").textContent = tool.version;
+  document.querySelector("[data-preview-version]").textContent = versionLabel;
   document.querySelector("[data-preview-port]").textContent = tool.ports.workshop.range;
 }
 
