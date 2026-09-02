@@ -27,8 +27,8 @@ const tools = {
     preview: "导入文档拆成提示语，批量生成、复查并导出项目图片。",
     tagline: "导入文档拆成提示语，批量生成、复查并导出项目图片",
     description: "导入文档并拆分成提示语，批量生成图片、复查失败任务、整理结果并导出项目素材。",
-    version: "1.1.16",
-    build: "32",
+    version: "1.1.17",
+    build: "33",
     icon: "assets/batchdesk.png",
     ports: {
       workshop: {
@@ -93,8 +93,8 @@ const tools = {
     preview: "组合人物、场景与分镜参考，精调提示语和镜头参数，生成并返修 4K 关键帧。",
     tagline: "组合人物、场景与分镜参考，精调提示语和镜头参数，生成并返修 4K 关键帧",
     description: "组合人物、场景与分镜参考，精调提示语、构图和镜头参数，生成并返修可用于制作的 4K 关键帧。",
-    version: "0.2.1",
-    build: "6",
+    version: "0.2.2",
+    build: "7",
     icon: "assets/keyframe-workbench.png",
     ports: {
       workshop: {
@@ -115,8 +115,8 @@ const tools = {
     preview: "管理项目与角色，完成音色复刻、AI 配音、逐句录音和配音包导出。",
     tagline: "管理项目与角色，完成音色复刻、AI 配音、逐句录音和配音包导出",
     description: "集中管理项目、角色与声音素材，完成音色复刻、AI 配音、逐句录音，并导出可交付的配音包。",
-    version: "1.1.8",
-    build: "8",
+    version: "1.1.9",
+    build: "9",
     icon: "assets/voice.png",
     ports: {
       workshop: {
@@ -134,11 +134,11 @@ const tools = {
   video: {
     sequence: "07",
     name: "兔狲视频工作台",
-    preview: "按分镜或素材文件夹创建视频任务，管理三帧质检并导出 Resolve 时间线。",
-    tagline: "按分镜或素材文件夹创建视频任务，管理三帧质检并导出 Resolve 时间线",
-    description: "按分镜或素材文件夹组织视频生成任务，自动配对提示语与图片、音频、视频素材，管理首帧、中帧、尾帧质检，最后导出 Resolve 时间线。",
-    version: "1.2.9",
-    build: "12",
+    preview: "按分镜创建视频任务，用语音导演和受控参考图管理生成、质检与 Resolve 导出。",
+    tagline: "语音导演、参考图资产、三帧质检与 Resolve 时间线",
+    description: "按分镜或素材文件夹组织视频生成任务，使用语音导演调整创作意图，以 @图片1～@图片4 管理受控参考图和 AI 虚拟人素材，并完成首帧、中帧、尾帧质检与 Resolve 时间线导出。",
+    version: "1.3.1",
+    build: "14",
     icon: "assets/video.png",
     ports: {
       workshop: {
