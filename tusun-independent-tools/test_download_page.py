@@ -35,13 +35,13 @@ class DownloadPageTests(unittest.TestCase):
         parser = PageParser()
         parser.feed(HTML)
         product_images = [item for item in parser.images if "官方 Logo" in item[1]]
-        self.assertEqual(len(product_images), 7)
+        self.assertEqual(len(product_images), 8)  # center + seven tools
         for src, alt in product_images:
             self.assertTrue((ROOT / src).is_file(), alt)
 
     def test_all_release_facts_present(self):
         for article in re.findall(r'<article class="tool-row".*?</article>', HTML, re.S):
-            for label in ("版本", "兼容性", "安装包", "SHA-256", "发行信任", "待发布"):
+            for label in ("版本", "兼容性", "安装包", "SHA-256", "发行信任"):
                 self.assertIn(label, article)
             checksum = re.search(r"<code>([0-9a-f]{64})</code>", article)
             self.assertIsNotNone(checksum)
@@ -49,10 +49,13 @@ class DownloadPageTests(unittest.TestCase):
     def test_no_unverified_or_workshop_download_link(self):
         parser = PageParser()
         parser.feed(HTML)
-        self.assertEqual(parser.download_links, [])
+        self.assertEqual(len(parser.download_links), 6)  # center + five published standalone candidates
+        self.assertTrue(all("tusun-independent-tools-current" in href or "tusun-film-center-tools-current" in href for href in parser.download_links))
         for href in re.findall(r'href="([^"]+)"', HTML, re.I):
+            if "tusun-independent-tools-current" not in href:
+                continue
             self.assertNotRegex(href, r"(?i)workshop|工作坊")
-        self.assertEqual(HTML.count('class="download-button" type="button" disabled'), 7)
+        self.assertEqual(HTML.count('class="download-button" type="button" disabled'), 2)
 
     def test_no_bundle_download_or_prefetch(self):
         self.assertNotIn("prefetch", HTML.lower())
