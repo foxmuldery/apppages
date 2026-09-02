@@ -46,16 +46,35 @@ class DownloadPageTests(unittest.TestCase):
             checksum = re.search(r"<code>([0-9a-f]{64})</code>", article)
             self.assertIsNotNone(checksum)
 
-    def test_no_unverified_or_workshop_download_link(self):
+    def test_only_verified_download_links_are_enabled(self):
         parser = PageParser()
         parser.feed(HTML)
-        self.assertEqual(len(parser.download_links), 6)  # center + five published standalone candidates
-        self.assertTrue(all("tusun-independent-tools-current" in href or "tusun-film-center-tools-current" in href for href in parser.download_links))
-        for href in re.findall(r'href="([^"]+)"', HTML, re.I):
-            if "tusun-independent-tools-current" not in href:
-                continue
+        expected = {
+            "https://github.com/foxmuldery/apppages/releases/download/tusun-film-center-tools-current/TusunAIWorkshop-v0.4.11-build25-macOS-arm64.zip",
+            "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-batchdesk-standalone-1.1.9-macos-arm64.zip",
+            "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-storyboard-workbench-standalone-1.0.9-macos-arm64.zip",
+            "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-keyframe-generator-standalone-0.6.2-macos-arm64.zip",
+            "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-voice-studio-standalone-1.1.9-macos-arm64.zip",
+            "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-video-workbench-standalone-1.3.1-macos-arm64.pkg",
+        }
+        self.assertEqual(set(parser.download_links), expected)
+        standalone_links = [href for href in parser.download_links if "tusun-independent-tools-current" in href]
+        self.assertEqual(len(standalone_links), 5)
+        for href in standalone_links:
+            self.assertIn("standalone", href)
             self.assertNotRegex(href, r"(?i)workshop|工作坊")
         self.assertEqual(HTML.count('class="download-button" type="button" disabled'), 2)
+
+    def test_center_app_is_separate_from_seven_tools(self):
+        center = re.search(r'<section class="center-download".*?</section>', HTML, re.S)
+        self.assertIsNotNone(center)
+        self.assertIn("tusun-film-center-tools-current", center.group(0))
+        self.assertNotIn('class="tool-row"', center.group(0))
+        for tool_id in ("screenplay", "keyframe-workbench"):
+            article = re.search(rf'<article class="tool-row" id="{tool_id}">.*?</article>', HTML, re.S)
+            self.assertIsNotNone(article)
+            self.assertNotIn("<a ", article.group(0))
+            self.assertIn("待发布", article.group(0))
 
     def test_no_bundle_download_or_prefetch(self):
         self.assertNotIn("prefetch", HTML.lower())
