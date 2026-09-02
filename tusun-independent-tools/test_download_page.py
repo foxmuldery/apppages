@@ -1,0 +1,64 @@
+from html.parser import HTMLParser
+from pathlib import Path
+import re
+import unittest
+
+ROOT = Path(__file__).resolve().parent
+HTML = (ROOT / "index.html").read_text(encoding="utf-8")
+
+
+class PageParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.download_links = []
+        self.images = []
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "a" and ("download" in attrs or "download" in attrs.get("class", "")):
+            self.download_links.append(attrs.get("href", ""))
+        if tag == "img":
+            self.images.append((attrs.get("src", ""), attrs.get("alt", "")))
+
+
+class DownloadPageTests(unittest.TestCase):
+    def test_exact_product_order(self):
+        expected = [
+            "兔狲剧本编辑器", "兔狲批量图生成台", "兔狲分镜工作台", "兔狲关键帧生成器",
+            "兔狲关键帧精调台", "兔狲配音工作台", "兔狲视频工作台",
+        ]
+        positions = [HTML.index(f"<h3>{name}</h3>") for name in expected]
+        self.assertEqual(positions, sorted(positions))
+        self.assertEqual(HTML.count('class="tool-row"'), 7)
+
+    def test_official_logos_exist(self):
+        parser = PageParser()
+        parser.feed(HTML)
+        product_images = [item for item in parser.images if "官方 Logo" in item[1]]
+        self.assertEqual(len(product_images), 7)
+        for src, alt in product_images:
+            self.assertTrue((ROOT / src).is_file(), alt)
+
+    def test_all_release_facts_present(self):
+        for article in re.findall(r'<article class="tool-row".*?</article>', HTML, re.S):
+            for label in ("版本", "兼容性", "安装包", "SHA-256", "发行信任", "待发布"):
+                self.assertIn(label, article)
+            checksum = re.search(r"<code>([0-9a-f]{64})</code>", article)
+            self.assertIsNotNone(checksum)
+
+    def test_no_unverified_or_workshop_download_link(self):
+        parser = PageParser()
+        parser.feed(HTML)
+        self.assertEqual(parser.download_links, [])
+        for href in re.findall(r'href="([^"]+)"', HTML, re.I):
+            self.assertNotRegex(href, r"(?i)workshop|工作坊")
+        self.assertEqual(HTML.count('class="download-button" type="button" disabled'), 7)
+
+    def test_no_bundle_download_or_prefetch(self):
+        self.assertNotIn("prefetch", HTML.lower())
+        self.assertNotIn("preload", HTML.lower())
+        self.assertNotRegex(HTML, r"(?i)download.{0,40}(all|bundle|suite|整套|全套)")
+
+
+if __name__ == "__main__":
+    unittest.main()
