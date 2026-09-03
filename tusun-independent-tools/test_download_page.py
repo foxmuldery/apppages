@@ -35,7 +35,7 @@ class DownloadPageTests(unittest.TestCase):
         parser = PageParser()
         parser.feed(HTML)
         product_images = [item for item in parser.images if "官方 Logo" in item[1]]
-        self.assertEqual(len(product_images), 8)  # center + seven tools
+        self.assertEqual(len(product_images), 7)
         for src, alt in product_images:
             self.assertTrue((ROOT / src).is_file(), alt)
 
@@ -50,7 +50,6 @@ class DownloadPageTests(unittest.TestCase):
         parser = PageParser()
         parser.feed(HTML)
         expected = {
-            "https://github.com/foxmuldery/apppages/releases/download/tusun-film-center-tools-current/TusunAIWorkshop-v0.4.11-build25-macOS-arm64.zip",
             "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-batchdesk-standalone-1.1.9-macos-arm64.zip",
             "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-storyboard-workbench-standalone-1.0.9-macos-arm64.zip",
             "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-keyframe-generator-standalone-0.6.2-macos-arm64.zip",
@@ -65,11 +64,10 @@ class DownloadPageTests(unittest.TestCase):
             self.assertNotRegex(href, r"(?i)workshop|工作坊")
         self.assertEqual(HTML.count('class="download-button" type="button" disabled'), 2)
 
-    def test_center_app_is_separate_from_seven_tools(self):
-        center = re.search(r'<section class="center-download".*?</section>', HTML, re.S)
-        self.assertIsNotNone(center)
-        self.assertIn("tusun-film-center-tools-current", center.group(0))
-        self.assertNotIn('class="tool-row"', center.group(0))
+    def test_center_app_is_not_in_independent_page(self):
+        self.assertNotIn("center-app", HTML)
+        self.assertNotIn("center-download", HTML)
+        self.assertNotIn("tusun-film-center-tools-current", HTML)
         for tool_id in ("screenplay", "keyframe-workbench"):
             article = re.search(rf'<article class="tool-row" id="{tool_id}">.*?</article>', HTML, re.S)
             self.assertIsNotNone(article)
