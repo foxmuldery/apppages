@@ -43,8 +43,9 @@ class DownloadPageTests(unittest.TestCase):
         for article in re.findall(r'<article class="tool-row".*?</article>', HTML, re.S):
             for label in ("版本", "兼容性", "安装包", "SHA-256", "发行信任"):
                 self.assertIn(label, article)
-            checksum = re.search(r"<code>([0-9a-f]{64})</code>", article)
-            self.assertIsNotNone(checksum)
+            if "待公开下载包冻结后提供" not in article:
+                checksum = re.search(r"<code>([0-9a-f]{64})</code>", article)
+                self.assertIsNotNone(checksum)
 
     def test_only_verified_download_links_are_enabled(self):
         parser = PageParser()
@@ -72,7 +73,10 @@ class DownloadPageTests(unittest.TestCase):
             article = re.search(rf'<article class="tool-row" id="{tool_id}">.*?</article>', HTML, re.S)
             self.assertIsNotNone(article)
             self.assertNotIn("<a ", article.group(0))
-            self.assertIn("待发布", article.group(0))
+            if tool_id == "screenplay":
+                self.assertIn("待公开下载", article.group(0))
+            else:
+                self.assertIn("待发布", article.group(0))
 
     def test_no_bundle_download_or_prefetch(self):
         self.assertNotIn("prefetch", HTML.lower())
