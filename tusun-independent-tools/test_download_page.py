@@ -43,14 +43,14 @@ class DownloadPageTests(unittest.TestCase):
         for article in re.findall(r'<article class="tool-row".*?</article>', HTML, re.S):
             for label in ("版本", "兼容性", "安装包", "SHA-256", "发行信任"):
                 self.assertIn(label, article)
-            if "待公开下载包冻结后提供" not in article:
-                checksum = re.search(r"<code>([0-9a-f]{64})</code>", article)
-                self.assertIsNotNone(checksum)
+            checksum = re.search(r"<code>([0-9a-f]{64})</code>", article)
+            self.assertIsNotNone(checksum)
 
     def test_only_verified_download_links_are_enabled(self):
         parser = PageParser()
         parser.feed(HTML)
         expected = {
+            "https://github.com/foxmuldery/tusun-screenplay-tool/releases/download/v1.0.27/Tusun-Screenplay-Editor-Mac-arm64-v1.0.27.dmg",
             "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-batchdesk-standalone-1.1.9-macos-arm64.zip",
             "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-storyboard-workbench-standalone-1.0.9-macos-arm64.zip",
             "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-keyframe-generator-standalone-0.6.2-macos-arm64.zip",
@@ -58,25 +58,23 @@ class DownloadPageTests(unittest.TestCase):
             "https://github.com/foxmuldery/apppages/releases/download/tusun-independent-tools-current/tusun-video-workbench-standalone-1.3.1-macos-arm64.pkg",
         }
         self.assertEqual(set(parser.download_links), expected)
-        standalone_links = [href for href in parser.download_links if "tusun-independent-tools-current" in href]
-        self.assertEqual(len(standalone_links), 5)
+        standalone_links = parser.download_links
+        self.assertEqual(len(standalone_links), 6)
         for href in standalone_links:
-            self.assertIn("standalone", href)
+            if "tusun-screenplay-tool" not in href:
+                self.assertIn("standalone", href)
             self.assertNotRegex(href, r"(?i)workshop|工作坊")
-        self.assertEqual(HTML.count('class="download-button" type="button" disabled'), 2)
+        self.assertEqual(HTML.count('class="download-button" type="button" disabled'), 1)
 
     def test_center_app_is_not_in_independent_page(self):
         self.assertNotIn("center-app", HTML)
         self.assertNotIn("center-download", HTML)
         self.assertNotIn("tusun-film-center-tools-current", HTML)
-        for tool_id in ("screenplay", "keyframe-workbench"):
+        for tool_id in ("keyframe-workbench",):
             article = re.search(rf'<article class="tool-row" id="{tool_id}">.*?</article>', HTML, re.S)
             self.assertIsNotNone(article)
             self.assertNotIn("<a ", article.group(0))
-            if tool_id == "screenplay":
-                self.assertIn("待公开下载", article.group(0))
-            else:
-                self.assertIn("待发布", article.group(0))
+            self.assertIn("待发布", article.group(0))
 
     def test_no_bundle_download_or_prefetch(self):
         self.assertNotIn("prefetch", HTML.lower())
