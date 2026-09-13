@@ -5,7 +5,7 @@ const tools = {
     preview: "在本地编写、自动排版与版本备份剧本，并导出 Word / Markdown。",
     tagline: "在本地编写、自动排版与版本备份剧本，并导出 Word / Markdown",
     description: "在本机完成剧本编写、场景与人物整理、自动排版和版本备份，并导出 Word 或 Markdown 交给后续制作。",
-    version: "1.0.28",
+    version: "1.0.29",
     build: null,
     icon: "assets/screenplay.png",
     ports: {
@@ -137,8 +137,8 @@ const tools = {
     preview: "按分镜创建视频任务，用语音导演和受控参考图管理生成、质检与 Resolve 导出。",
     tagline: "语音导演、参考图资产、三帧质检与 Resolve 时间线",
     description: "按分镜或素材文件夹组织视频生成任务，使用语音导演调整创作意图，以 @图片1～@图片4 管理受控参考图和 AI 虚拟人素材，并完成首帧、中帧、尾帧质检与 Resolve 时间线导出。",
-    version: "1.3.3",
-    build: "16",
+    version: "1.3.4",
+    build: "17",
     icon: "assets/video.png",
     ports: {
       workshop: {
