@@ -7,7 +7,15 @@
   <meta name="referrer" content="no-referrer">
   <title>祭 · 设计工作台</title>
   <style>
-    *{box-sizing:border-box}body{margin:0;background:#f7f6f2;color:#30332b;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif}main{max-width:620px;margin:12vh auto;padding:38px}small{letter-spacing:3px;color:#8a927c}h1{font-family:'Songti SC',SimSun,serif;font-weight:500;font-size:44px;margin:20px 0}p{font-size:14px;color:#777e6c;line-height:1.95}a{display:inline-block;padding:13px 22px;background:#783c31;color:white;text-decoration:none;border-radius:6px;margin:20px 0}footer{border-top:1px solid #dedfd5;padding-top:20px;font-size:12px;line-height:1.8;color:#8d9580}
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f7f6f2; color: #30332b; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    main { max-width: 620px; margin: 12vh auto; padding: 38px; }
+    small { letter-spacing: 3px; color: #8a927c; }
+    h1 { font-family: 'Songti SC', SimSun, serif; font-weight: 500; font-size: 44px; margin: 20px 0; }
+    p { font-size: 14px; color: #777e6c; line-height: 1.95; }
+    a { display: inline-block; padding: 13px 22px; background: #783c31; color: white; text-decoration: none; border-radius: 6px; margin: 20px 0; }
+    footer { border-top: 1px solid #dedfd5; padding-top: 20px; font-size: 12px; line-height: 1.8; color: #8d9580; }
+    @media (max-width: 500px) { main { margin: 6vh auto; padding: 26px; } h1 { font-size: 32px; } }
   </style>
 </head>
 <body>
@@ -15,15 +23,15 @@
     <small>JI / DESIGN ARCHIVE</small>
     <h1>祭 · 设计工作台</h1>
     <p>角色档案、场景气氛、道具连续性与文字资料。新增版本、修改要求、图片点位批注与团队审阅，集中在同一个工作区。</p>
-    <a id="workspace" href="https://app-atlbpo.v2.appdeploy.ai/" rel="noreferrer">进入设计工作台 →</a>
-    <footer>项目资料需要邀请访问。此页面不存放图片、剧本文本或访问密钥；共享编辑与文件存储由独立后端提供。请使用负责人给出的邀请链接进入。</footer>
+    <a id="workspace" href="https://app-s919jy.v2.appdeploy.ai/" rel="noreferrer">进入设计工作台 →</a>
+    <footer>项目资料需要邀请访问。此页面不存放图片、剧本文本或访问密钥；共享编辑与文件存储由独立后端提供。请使用负责人给出的邀请链接进入。首次由负责人使用“整包导入”迁入已整理资料，完成后团队共用。</footer>
   </main>
   <script>
     const fragment = new URLSearchParams(window.location.hash.slice(1));
     const invite = fragment.get('invite');
-    const target = new URL('https://app-atlbpo.v2.appdeploy.ai/');
+    const target = new URL('https://app-s919jy.v2.appdeploy.ai/');
     if (invite && /^[A-Za-z0-9_-]{32,128}$/.test(invite)) {
-      target.hash = new URLSearchParams({invite}).toString();
+      target.hash = new URLSearchParams({ invite }).toString();
       document.getElementById('workspace').href = target.href;
       history.replaceState(null, '', location.pathname + location.search);
       location.replace(target.href);
