@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7f4ec">
+  <title>烦恼种子</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div><h1>烦恼种子</h1><p>把烦恼种下，让自己慢慢长大</p></div>
+      <a class="about-link" href="/worryseed/">关于</a>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy"><h2 id="hero-title">说出此刻的烦恼</h2><p>让情绪落地，也让改变开始生长。</p></div>
+      <div class="plant-stage" aria-hidden="true">
+        <svg viewBox="0 0 320 250" role="img">
+          <g class="rings"><ellipse cx="160" cy="213" rx="115" ry="21"/><ellipse cx="160" cy="213" rx="83" ry="14"/><ellipse cx="160" cy="213" rx="50" ry="8"/></g>
+          <path class="stem" d="M160 207 C158 162 167 116 162 66"/>
+          <path class="leaf" d="M161 128 C126 126 107 104 112 78 C143 78 161 96 161 128Z"/>
+          <path class="leaf leaf-right" d="M163 105 C170 72 194 54 222 61 C215 90 194 105 163 105Z"/>
+          <path class="leaf leaf-small" d="M161 73 C140 64 131 47 136 31 C157 37 166 52 161 73Z"/>
+          <path class="soil" d="M87 214 C104 190 129 184 160 190 C188 180 220 192 235 214Z"/>
+        </svg>
+      </div>
+      <button id="recordButton" class="record-button" type="button"><span class="mic" aria-hidden="true"></span><span id="recordLabel">按住录音</span></button>
+      <p id="recordHint" class="record-hint">最长 60 秒，松开后可编辑文字</p>
+    </section>
+
+    <nav class="status-nav" aria-label="种子状态">
+      <button class="status-tab active" data-filter="all"><span class="seed-icon">◒</span>我的种子</button>
+      <button class="status-tab" data-filter="growing"><span class="sprout-icon">⌁</span>正在生长</button>
+      <button class="status-tab" data-filter="review"><span class="sprout-icon">⌁</span>需要回访</button>
+      <button class="status-tab" data-filter="fruited"><span class="tree-icon">♧</span>已经结果</button>
+    </nav>
+
+    <section class="seed-section" aria-labelledby="seed-list-title">
+      <div class="section-heading"><h2 id="seed-list-title">我的种子</h2><button id="newTextSeed" class="text-button">文字记录</button></div>
+      <div id="seedList" class="seed-list"></div>
+      <div id="emptyState" class="empty-state" hidden><div class="empty-seed">◒</div><h3>还没有种子</h3><p>说出一件正在困扰你的事，先让它被看见。</p></div>
+    </section>
+  </main>
+
+  <dialog id="editorDialog" class="sheet">
+    <form id="seedForm" method="dialog">
+      <div class="sheet-head"><div><p class="step-label">种下一颗种子</p><h2>整理这份烦恼</h2></div><button id="closeEditor" class="close-button" type="button" aria-label="关闭">×</button></div>
+      <label>给它一个名字<input id="seedTitle" maxlength="36" placeholder="例如：关于工作的不确定"></label>
+      <label>此刻发生了什么<textarea id="seedContent" maxlength="1000" rows="5" placeholder="录音转写或补充你的想法"></textarea></label>
+      <div id="audioPreview" class="audio-preview" hidden><audio id="recordedAudio" controls></audio><span id="audioDuration"></span></div>
+      <fieldset><legend>烦恼程度</legend><div class="choice-row"><label><input type="radio" name="intensity" value="1">轻微</label><label><input type="radio" name="intensity" value="2" checked>持续</label><label><input type="radio" name="intensity" value="3">强烈</label></div></fieldset>
+      <label>标签<select id="seedTag"><option>工作</option><option>感情</option><option>家庭</option><option>学习</option><option>人际关系</option><option>健康</option><option>其他</option></select></label>
+      <label>下次回访<select id="reviewDays"><option value="1">1 天后</option><option value="7" selected>7 天后</option><option value="30">30 天后</option><option value="90">90 天后</option><option value="365">1 年后</option></select></label>
+      <button class="primary-button" value="default">种下这颗种子</button>
+    </form>
+  </dialog>
+
+  <dialog id="detailDialog" class="sheet">
+    <div class="sheet-head"><div><p id="detailStage" class="step-label"></p><h2 id="detailTitle"></h2></div><button class="close-button" aria-label="关闭" data-close-detail>×</button></div>
+    <p id="detailContent" class="detail-content"></p><div id="growthTimeline" class="timeline"></div>
+    <form id="progressForm"><label>这段时间有什么变化<textarea id="progressText" rows="4" maxlength="1000" placeholder="记录行动、变化、总结，无法解决也可以继续生长"></textarea></label><div class="detail-actions"><button type="submit" class="secondary-button">继续生长</button><button type="button" id="resolveButton" class="primary-button">已经解决，结出果实</button></div></form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
