@@ -1,8 +1,8 @@
 /**
- * 只作用于 apps.foxlaoy.com 首页的轻量重写：
- * Cloudflare Pages 项目 apppages 的 Git 构建未触发，
- * 整站手动部署又被 32MB 安装包挡住；这里仅把首页里
- * 旧的卡片系统域名替换为新域名，其他路径完全不经过 Worker。
+ * apppages 的 Cloudflare Pages Git 构建未触发，整站手动部署又被
+ * 32MB 安装包挡住（单文件 25MB 限制）。这个 Worker 兜底：
+ * 从 apppages.pages.dev 取同路径内容，把 HTML 中的旧卡片域名
+ * 替换为新域名；其他内容原样流式返回。
  */
 export default {
   async fetch(request) {
