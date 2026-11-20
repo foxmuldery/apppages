@@ -39,7 +39,9 @@ export async function onRequest(context) {
     rawBody = await request.text();
     const parsed = JSON.parse(rawBody);
     const appId =
-      subpath === 'check' ? parsed?.app_id : parsed?.event?.app_id;
+      subpath === 'check'
+        ? parsed?.app_id
+        : (parsed?.event?.app_id ?? parsed?.app_id);
     if (appId !== ALLOWED_APP_ID) {
       return new Response(JSON.stringify({ error: 'Forbidden app_id' }), {
         status: 403,
