@@ -1,10 +1,12 @@
 // Cloudflare Pages Function: Shorebird Patch Proxy for Flash Memo (留声闪记)
-// Allows Mainland China clients (without VPN) to check & report Shorebird patches
-// via https://apps.foxlaoy.com/api/v1/patches/{check,events} -> https://api.shorebird.dev
+// Allows Mainland China clients (without VPN) to check, download, & report Shorebird patches
+// via https://apps.foxlaoy.com/api/v1/patches/{check,events,cdn/...}
 // Strictly locked to Flash Memo's app_id so this endpoint cannot be abused as an open proxy.
 
 const ALLOWED_APP_ID = '441919ad-1e51-4b10-bc7e-6b0437df4912';
 const UPSTREAM_ORIGIN = 'https://api.shorebird.dev';
+const UPSTREAM_CDN_PREFIX = `https://cdn.shorebird.cloud/api/v1/patches/${ALLOWED_APP_ID}/`;
+const PUBLIC_CDN_PREFIX = `https://apps.foxlaoy.com/api/v1/patches/cdn/${ALLOWED_APP_ID}/`;
 
 export async function onRequest(context) {
   const { request, params } = context;
@@ -19,7 +21,53 @@ export async function onRequest(context) {
     return new Response(null, { status: 204 });
   }
 
-  // Only allow the two runtime updater endpoints used by Shorebird's Rust engine
+  // 1. China-direct binary stream proxy for dlc.vmcode artifacts (strictly locked to ALLOWED_APP_ID)
+  if (segments[0] === 'cdn') {
+    if (request.method !== 'GET' && request.method !== 'HEAD') {
+      return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+        status: 405,
+        headers: { 'content-type': 'application/json; charset=utf-8' },
+      });
+    }
+    const appIdSeg = segments[1];
+    const fileSeg = segments[segments.length - 1];
+    if (
+      segments.length < 5 ||
+      appIdSeg !== ALLOWED_APP_ID ||
+      fileSeg !== 'dlc.vmcode' ||
+      segments.some((s) => !s || s === '.' || s === '..')
+    ) {
+      return new Response(JSON.stringify({ error: 'Forbidden patch path' }), {
+        status: 403,
+        headers: { 'content-type': 'application/json; charset=utf-8' },
+      });
+    }
+    const relPath = segments.slice(1).join('/');
+    const cdnUrl = `https://cdn.shorebird.cloud/api/v1/patches/${relPath}`;
+    const cdnRes = await fetch(cdnUrl, {
+      method: 'GET',
+      headers: {
+        'user-agent': request.headers.get('user-agent') || 'shorebird-proxy/1.0',
+      },
+    });
+    const outHeaders = new Headers();
+    outHeaders.set(
+      'content-type',
+      cdnRes.headers.get('content-type') || 'application/octet-stream',
+    );
+    const cl = cdnRes.headers.get('content-length');
+    if (cl) outHeaders.set('content-length', cl);
+    outHeaders.set(
+      'cache-control',
+      cdnRes.ok ? 'public, max-age=31536000, immutable' : 'no-store',
+    );
+    return new Response(request.method === 'HEAD' ? null : cdnRes.body, {
+      status: cdnRes.status,
+      headers: outHeaders,
+    });
+  }
+
+  // 2. Only allow the two runtime updater endpoints used by Shorebird's Rust engine
   if (subpath !== 'check' && subpath !== 'events') {
     return new Response(JSON.stringify({ error: 'Not found' }), {
       status: 404,
@@ -72,6 +120,26 @@ export async function onRequest(context) {
   const ct = upstreamRes.headers.get('content-type');
   if (ct) resHeaders.set('content-type', ct);
   resHeaders.set('cache-control', 'no-store');
+
+  // Rewrite cdn.shorebird.cloud download_url -> apps.foxlaoy.com/api/v1/patches/cdn/...
+  // so Mainland China clients never stall on SNI-throttled *.shorebird.cloud!
+  if (subpath === 'check' && upstreamRes.ok) {
+    try {
+      const payload = await upstreamRes.json();
+      const dl = payload?.patch?.download_url;
+      if (typeof dl === 'string' && dl.startsWith(UPSTREAM_CDN_PREFIX)) {
+        payload.patch.download_url =
+          PUBLIC_CDN_PREFIX + dl.slice(UPSTREAM_CDN_PREFIX.length);
+      }
+      resHeaders.set('content-type', 'application/json; charset=utf-8');
+      return new Response(JSON.stringify(payload), {
+        status: upstreamRes.status,
+        headers: resHeaders,
+      });
+    } catch (_) {
+      // Fallback below if non-JSON
+    }
+  }
 
   return new Response(upstreamRes.body, {
     status: upstreamRes.status,
