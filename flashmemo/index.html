@@ -1686,10 +1686,10 @@
               <span class="flow-step">STAGE 02</span>
             </div>
             <h3>机械键帽拆词精修</h3>
-            <p>右推博朗信号橙机械滑杆，把口语化的原始转写送入校对台。自适应 1u / 2u / 3u 机械键帽拆词重组、按需调用 AI 润色提炼，并一键标记为 <code>MOOD / IDEA / MEMO</code>。</p>
+            <p>右推博朗信号橙机械滑杆，把口语化的原始转写送入校对台。自适应 1u / 2u / 3u 机械键帽拆词整理、添附地点邮戳与定时提醒，并一键归类为 <code>MOOD / IDEA / MEMO</code>。</p>
             <div class="flow-tags">
-              <span>键帽拆词重排</span>
-              <span>按需 AI 润色</span>
+              <span>键帽拆词整理</span>
+              <span>地点邮戳与提醒</span>
               <span>心情 / 灵感 / 备忘</span>
             </div>
           </article>
@@ -1839,7 +1839,7 @@
           </details>
           <details class="faq">
             <summary>我的语音录音、转写文本和卡片会上传到服务器吗？</summary>
-            <p>不会。留声闪记默认 100% 本地离线运行，语音转写完全在设备端完成，录音、笔记数据库与卡片都只保存在你的本机存储中。只有当你主动配置并点击 AI 润色功能时，当前单条文本才会按你的配置发送给对应的模型接口。详情可查看<a href="privacy.html" style="text-decoration: underline; color: var(--orange-lo);">《隐私政策》</a>。</p>
+            <p>不会。留声闪记 100% 本地离线运行，语音转写完全在设备端完成，录音、笔记数据库与卡片全部只保存在你的本机存储中，不会向任何服务器上传你的个人记录。详情可查看<a href="privacy.html" style="text-decoration: underline; color: var(--orange-lo);">《隐私政策》</a>。</p>
           </details>
           <details class="faq">
             <summary>为什么单张卡片顶栏找不到删除按钮？</summary>
@@ -1915,7 +1915,7 @@
       let showAll = false;
       let pureMode = false;
       let cutterArmed = false;
-      let polishedOn = false;
+      let stampOn = false;
       let selectedTokens = new Set([0, 3]);
       let isRecording = false;
       let toastTimer = null;
@@ -2052,16 +2052,16 @@
         }
 
         if (stage === 2) {
-          const displayBody = polishedOn ? note.polished : note.text;
+          const stampSuffix = stampOn ? '<div style="margin-top:6px; font-family:var(--mono); font-size:10px; color:var(--orange-lo);">📍 杭州 · 西湖畔 · 晴</div>' : '';
           viewportEl.innerHTML = `
             <div class="edit-stage">
               <div class="platen-bar"><span class="pure-hide">PLATEN · TYPEWRITER PROOF</span></div>
-              <div class="edit-paper">${displayBody}</div>
+              <div class="edit-paper">${note.text}${stampSuffix}</div>
               <div class="cat-row">
                 <div class="cat-pills">
                   ${['MOOD', 'IDEA', 'MEMO'].map(c => `<button type="button" class="cat-pill ${note.type === c ? 'active' : ''}" data-cat="${c}">${c}</button>`).join('')}
                 </div>
-                <button type="button" class="ai-btn ${polishedOn ? 'on' : ''}" id="aiPolishBtn">${polishedOn ? '✓ AI 已润色' : '✦ AI 润色'}</button>
+                <button type="button" class="ai-btn ${stampOn ? 'on' : ''}" id="stampBtn">${stampOn ? '✓ 已盖邮戳' : '📍 地点邮戳'}</button>
               </div>
               <div class="keycap-grid">
                 ${note.tokens.map((t, i) => `<button type="button" class="keycap ${selectedTokens.has(i) ? 'selected' : ''}" data-tok="${i}">${t}</button>`).join('')}
@@ -2075,12 +2075,12 @@
               showToast('已切换分类：' + btn.dataset.cat);
             });
           });
-          const aiBtn = document.getElementById('aiPolishBtn');
-          if (aiBtn) {
-            aiBtn.addEventListener('click', () => {
-              polishedOn = !polishedOn;
+          const stampBtn = document.getElementById('stampBtn');
+          if (stampBtn) {
+            stampBtn.addEventListener('click', () => {
+              stampOn = !stampOn;
               renderBay();
-              showToast(polishedOn ? '已切换 AI 润色精修稿' : '已还原离线原始转写');
+              showToast(stampOn ? '已盖上复古地点邮戳' : '已移除地点邮戳');
             });
           }
           viewportEl.querySelectorAll('[data-tok]').forEach(btn => {
@@ -2115,9 +2115,9 @@
                   <div class="polaroid-photo-quote">${note.quote}</div>
                 </div>
                 <div class="polaroid-caption">
-                  <div class="polaroid-body">${polishedOn ? note.polished : note.text}</div>
+                  <div class="polaroid-body">${note.text}</div>
                   <div class="polaroid-seal-row">
-                    <span class="pure-hide">NO.${String(activeIdx + 1).padStart(2, '0')}/${String(notes.length).padStart(2, '0')} · ${note.type}</span>
+                    <span class="pure-hide">NO.${String(activeIdx + 1).padStart(2, '0')}/${String(notes.length).padStart(2, '0')} · ${note.type}${stampOn ? ' · 西湖畔' : ''}</span>
                     <span class="seal-stamp">留声手札</span>
                   </div>
                 </div>
