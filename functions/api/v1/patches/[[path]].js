@@ -42,6 +42,32 @@ export async function onRequest(context) {
         headers: { 'content-type': 'application/json; charset=utf-8' },
       });
     }
+
+    const reqRange = request.headers.get('range');
+    const url = new URL(request.url);
+    const canonicalUrl = `${url.origin}${url.pathname}`;
+    const cache = typeof caches !== 'undefined' ? caches.default : null;
+    const cacheKey = new Request(canonicalUrl, { method: 'GET' });
+
+    if (cache) {
+      const matchReq = reqRange
+        ? new Request(canonicalUrl, {
+            method: 'GET',
+            headers: { range: reqRange },
+          })
+        : cacheKey;
+      const cached = await cache.match(matchReq);
+      if (cached) {
+        const hitHeaders = new Headers(cached.headers);
+        hitHeaders.set('cf-cache-status', 'HIT');
+        hitHeaders.set('x-patch-edge-cache', 'HIT');
+        return new Response(request.method === 'HEAD' ? null : cached.body, {
+          status: cached.status,
+          headers: hitHeaders,
+        });
+      }
+    }
+
     const relPath = segments.slice(1).join('/');
     const cdnUrl = `https://cdn.shorebird.cloud/api/v1/patches/${relPath}`;
     const cdnHeaders = new Headers();
@@ -49,11 +75,14 @@ export async function onRequest(context) {
       'user-agent',
       request.headers.get('user-agent') || 'shorebird-proxy/1.0',
     );
-    const reqRange = request.headers.get('range');
     if (reqRange) cdnHeaders.set('range', reqRange);
     const cdnRes = await fetch(cdnUrl, {
       method: 'GET',
       headers: cdnHeaders,
+      cf: {
+        cacheEverything: true,
+        cacheTtl: 31536000,
+      },
     });
     const outHeaders = new Headers();
     outHeaders.set(
@@ -64,13 +93,50 @@ export async function onRequest(context) {
     if (cl) outHeaders.set('content-length', cl);
     const cr = cdnRes.headers.get('content-range');
     if (cr) outHeaders.set('content-range', cr);
-    const ar = cdnRes.headers.get('accept-ranges');
-    if (ar) outHeaders.set('accept-ranges', ar);
+    outHeaders.set(
+      'accept-ranges',
+      cdnRes.headers.get('accept-ranges') || 'bytes',
+    );
     outHeaders.set(
       'cache-control',
       cdnRes.ok ? 'public, max-age=31536000, immutable' : 'no-store',
     );
-    return new Response(request.method === 'HEAD' ? null : cdnRes.body, {
+    outHeaders.set('x-patch-edge-cache', 'MISS');
+
+    if (
+      cache &&
+      request.method === 'GET' &&
+      !reqRange &&
+      cdnRes.status === 200 &&
+      cdnRes.body
+    ) {
+      const [clientBody, cacheBody] = cdnRes.body.tee();
+      const cacheHeaders = new Headers(outHeaders);
+      cacheHeaders.delete('x-patch-edge-cache');
+      const cacheEntry = new Response(cacheBody, {
+        status: 200,
+        headers: cacheHeaders,
+      });
+      if (typeof context.waitUntil === 'function') {
+        context.waitUntil(cache.put(cacheKey, cacheEntry));
+      } else {
+        await cache.put(cacheKey, cacheEntry);
+      }
+      return new Response(clientBody, {
+        status: 200,
+        headers: outHeaders,
+      });
+    }
+
+    if (request.method === 'HEAD') {
+      cdnRes.body?.cancel();
+      return new Response(null, {
+        status: cdnRes.status,
+        headers: outHeaders,
+      });
+    }
+
+    return new Response(cdnRes.body, {
       status: cdnRes.status,
       headers: outHeaders,
     });
