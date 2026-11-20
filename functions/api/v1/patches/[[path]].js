@@ -44,11 +44,16 @@ export async function onRequest(context) {
     }
     const relPath = segments.slice(1).join('/');
     const cdnUrl = `https://cdn.shorebird.cloud/api/v1/patches/${relPath}`;
+    const cdnHeaders = new Headers();
+    cdnHeaders.set(
+      'user-agent',
+      request.headers.get('user-agent') || 'shorebird-proxy/1.0',
+    );
+    const reqRange = request.headers.get('range');
+    if (reqRange) cdnHeaders.set('range', reqRange);
     const cdnRes = await fetch(cdnUrl, {
       method: 'GET',
-      headers: {
-        'user-agent': request.headers.get('user-agent') || 'shorebird-proxy/1.0',
-      },
+      headers: cdnHeaders,
     });
     const outHeaders = new Headers();
     outHeaders.set(
@@ -57,6 +62,10 @@ export async function onRequest(context) {
     );
     const cl = cdnRes.headers.get('content-length');
     if (cl) outHeaders.set('content-length', cl);
+    const cr = cdnRes.headers.get('content-range');
+    if (cr) outHeaders.set('content-range', cr);
+    const ar = cdnRes.headers.get('accept-ranges');
+    if (ar) outHeaders.set('accept-ranges', ar);
     outHeaders.set(
       'cache-control',
       cdnRes.ok ? 'public, max-age=31536000, immutable' : 'no-store',
