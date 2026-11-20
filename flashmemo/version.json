@@ -1,10 +1,10 @@
 {
   "version": "1.8.4",
-  "buildNumber": 4104,
+  "buildNumber": 4107,
   "channel": "beta",
-  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.8.4-4104/app-release.apk",
-  "sha256": "b50a38d6206821f6b7c5c484c6bf488a4c4d7c0036fef00624eb402373d4a811",
-  "publishedAt": "2026-11-20T18:55:00+08:00",
+  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.8.4-4107/app-release.apk",
+  "sha256": "41ba4b29b9584c9b07896737986468891bf1067f620df14cc48ab810a06feb09",
+  "publishedAt": "2026-11-21T07:56:00+08:00",
   "forceUpdate": false,
-  "releaseNotes": "【留声闪记 FLASH MEMO v1.8.4 (4104) · 完整内置离线模型版 · 198MB】\n1. 🌐 国内无 VPN 直连热更 & OTA 升级通道打通：内置自有 Cloudflare 代理节点（apps.foxlaoy.com），后续 Shorebird 热更补丁与版本清单均支持国内直连秒检；移除失效镜像、超时升至 10s，并发拉取严格取最高 buildNumber，彻底杜绝旧缓存抢答漏更。\n2. 🎛️ 品牌图标全面焕新：关于页、开源许可页与启动页统一替换为新版 Braun 硬件质感「留声闪记」图标。\n3. ✂️ 内置 228MB SenseVoiceSmall 离线语音模型 + 零白屏 Skia 启动 + 撕票直达 II EDIT & 快记模式 + 小票标签胶囊与全量安全审计加固。"
+  "releaseNotes": "【留声闪记 FLASH MEMO v1.8.4 (4107) · 完整内置离线模型版 · 198MB】\n1. 🔄 彻底解决默认数字助理态下「划掉不热更」：接入 shorebird_code_push，设置/关于页直显当前热更补丁号（P0 / P#N）与检查状态，支持手动检查与一键立即重启生效；新增 7 道安全守卫的空闲自动换 PID 生效机制（单补丁防循环锁 + 120s 冷却 + 录音/叠层/转写零打断保护），常规划掉任务即可自动生效新补丁。\n2. 🌐 全应用双语本地化与即时切换（跟随系统 / 简体中文 / English）、纯中文工位体验（闪记 / 整理 / 卡片）、错位折耳分类签、球面键帽物理反馈与软键盘隐藏底栏。\n3. 🎛️ 外观模式改为矢量图标（零缺字）、英文设置页标题完整展示；内置 228MB SenseVoiceSmall 离线模型、零白屏 Skia 启动与国内无 VPN Cloudflare 边缘缓存加速。"
 }
