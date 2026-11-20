@@ -1,0 +1,10 @@
+{
+  "version": "1.8.4",
+  "buildNumber": 4103,
+  "channel": "beta",
+  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.8.4-4103/app-release.apk",
+  "sha256": "1c94aab59221a8cb3f7cf1b361f5b4bd45bc094a6fa6a0f92aef331c2850d9dd",
+  "publishedAt": "2026-11-20T16:26:50+08:00",
+  "forceUpdate": false,
+  "releaseNotes": "【留声闪记 FLASH MEMO v1.8.4 (4103) · 完整内置离线模型版 · 198MB】\n1. 🛡️ 彻底根治新机首启白屏（红米 K90 / HyperOS 4 / Android 16 实测验证）：内置 228MB SenseVoiceSmall 离线语音模型开箱即用，彻底告别首启联网卡顿；强制 Skia 渲染（EnableImpeller=false）+ 暖纸灰启动背景（#E6E3DB）+ 同 Zone 冷启安全重锁与全局异常降级。\n2. ✂️ 默认撕票直达 II EDIT & 新增「快记模式」：录音停止撕票后直接进入 II EDIT 边出字边改字、打标签、加照片，原 I SLIP 小票仓保留可随时回切；设置页新增「快记模式」开关（开启后录完静默后台保存并返回原应用），并清理「更多选项」中重复的主题选择项。\n3. 🔒 生产质量审计全量加固：慢转写单事务保护防覆盖手写/清空正文、Worker Isolate 分代防迟到串线、丢弃录音防幽灵残留、照片预览防错显与去同步 I/O、编辑位置改为显式同意后再查地图、诊断日志脱敏加固、补齐 Apache-2.0 / FunASR v1.1 / Silero VAD MIT / ONNX Runtime MIT 完整协议。"
+}
