@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "regions": ["hkg1", "hnd1", "sin1"],
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [

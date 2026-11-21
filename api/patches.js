@@ -269,3 +269,8 @@ export default async function handler(request) {
   }
   return jsonResponse({ error: 'Not found' }, 404);
 }
+
+export const GET = handler;
+export const POST = handler;
+export const HEAD = handler;
+export const OPTIONS = handler;
