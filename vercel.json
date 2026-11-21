@@ -1,0 +1,55 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/api/v1/patches/:subpath*",
+      "destination": "/api/patches?__subpath=:subpath*"
+    },
+    {
+      "source": "/flashmemo",
+      "destination": "/flashmemo/index.html"
+    },
+    {
+      "source": "/flashmemo/",
+      "destination": "/flashmemo/index.html"
+    },
+    {
+      "source": "/catbreak",
+      "destination": "/catbreak/index.html"
+    },
+    {
+      "source": "/catbreak/",
+      "destination": "/catbreak/index.html"
+    },
+    {
+      "source": "/worryseed",
+      "destination": "/worryseed/index.html"
+    },
+    {
+      "source": "/worryseed/",
+      "destination": "/worryseed/index.html"
+    },
+    {
+      "source": "/ji-workspace/:path*",
+      "destination": "https://apppages.pages.dev/ji-workspace/:path*"
+    },
+    {
+      "source": "/tusun-film-center/:path*",
+      "destination": "https://apppages.pages.dev/tusun-film-center/:path*"
+    },
+    {
+      "source": "/tusun-independent-tools/:path*",
+      "destination": "https://apppages.pages.dev/tusun-independent-tools/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/flashmemo/(version.*\\.json)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=60" }
+      ]
+    }
+  ]
+}
