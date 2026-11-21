@@ -7,6 +7,45 @@ const ALLOWED_APP_ID = '441919ad-1e51-4b10-bc7e-6b0437df4912';
 const UPSTREAM_ORIGIN = 'https://api.shorebird.dev';
 const UPSTREAM_CDN_PREFIX = `https://cdn.shorebird.cloud/api/v1/patches/${ALLOWED_APP_ID}/`;
 const PUBLIC_CDN_PREFIX = `https://apps.foxlaoy.com/api/v1/patches/cdn/${ALLOWED_APP_ID}/`;
+const PATCH_CHECK_CACHE_TTL_SECONDS = 45;
+
+function buildPatchCheckCacheKey(origin, parsed) {
+  if (!parsed || typeof parsed !== 'object') return null;
+  const { app_id, channel, release_version, platform, arch, patch_number } =
+    parsed;
+  if (
+    app_id !== ALLOWED_APP_ID ||
+    typeof channel !== 'string' ||
+    !channel ||
+    typeof release_version !== 'string' ||
+    !release_version ||
+    typeof platform !== 'string' ||
+    !platform ||
+    typeof arch !== 'string' ||
+    !arch
+  ) {
+    return null;
+  }
+  let normalizedPatchNumber;
+  if (patch_number === undefined || patch_number === null) {
+    normalizedPatchNumber = '0';
+  } else if (Number.isInteger(patch_number) && patch_number >= 0) {
+    normalizedPatchNumber = String(patch_number);
+  } else {
+    return null;
+  }
+  const params = new URLSearchParams({
+    app_id,
+    channel,
+    release_version,
+    platform,
+    arch,
+    patch_number: normalizedPatchNumber,
+  });
+  return new Request(`${origin}/__edge_patch_check_v1?${params.toString()}`, {
+    method: 'GET',
+  });
+}
 
 export async function onRequest(context) {
   const { request, params } = context;
@@ -158,9 +197,10 @@ export async function onRequest(context) {
   }
 
   let rawBody = '';
+  let parsed = null;
   try {
     rawBody = await request.text();
-    const parsed = JSON.parse(rawBody);
+    parsed = JSON.parse(rawBody);
     const appId =
       subpath === 'check'
         ? parsed?.app_id
@@ -176,6 +216,27 @@ export async function onRequest(context) {
       status: 400,
       headers: { 'content-type': 'application/json; charset=utf-8' },
     });
+  }
+
+  const reqUrl = new URL(request.url);
+  const cache = typeof caches !== 'undefined' ? caches.default : null;
+  const cacheKey =
+    cache && subpath === 'check'
+      ? buildPatchCheckCacheKey(reqUrl.origin, parsed)
+      : null;
+
+  if (cache && cacheKey) {
+    const cached = await cache.match(cacheKey);
+    if (cached) {
+      return new Response(cached.body, {
+        status: 200,
+        headers: {
+          'content-type': 'application/json; charset=utf-8',
+          'cache-control': 'no-store',
+          'x-patch-check-cache': 'HIT',
+        },
+      });
+    }
   }
 
   const upstreamUrl = `${UPSTREAM_ORIGIN}/api/v1/patches/${subpath}`;
@@ -198,7 +259,7 @@ export async function onRequest(context) {
 
   // Rewrite cdn.shorebird.cloud download_url -> apps.foxlaoy.com/api/v1/patches/cdn/...
   // so Mainland China clients never stall on SNI-throttled *.shorebird.cloud!
-  if (subpath === 'check' && upstreamRes.ok) {
+  if (subpath === 'check' && upstreamRes.status === 200) {
     try {
       const payload = await upstreamRes.json();
       const dl = payload?.patch?.download_url;
@@ -206,14 +267,34 @@ export async function onRequest(context) {
         payload.patch.download_url =
           PUBLIC_CDN_PREFIX + dl.slice(UPSTREAM_CDN_PREFIX.length);
       }
+      const serialized = JSON.stringify(payload);
       resHeaders.set('content-type', 'application/json; charset=utf-8');
-      return new Response(JSON.stringify(payload), {
-        status: upstreamRes.status,
+      resHeaders.set('x-patch-check-cache', cacheKey ? 'MISS' : 'BYPASS');
+      if (cache && cacheKey) {
+        const cacheEntry = new Response(serialized, {
+          status: 200,
+          headers: {
+            'content-type': 'application/json; charset=utf-8',
+            'cache-control': `public, max-age=${PATCH_CHECK_CACHE_TTL_SECONDS}`,
+          },
+        });
+        if (typeof context.waitUntil === 'function') {
+          context.waitUntil(cache.put(cacheKey, cacheEntry));
+        } else {
+          await cache.put(cacheKey, cacheEntry);
+        }
+      }
+      return new Response(serialized, {
+        status: 200,
         headers: resHeaders,
       });
     } catch (_) {
       // Fallback below if non-JSON
     }
+  }
+
+  if (subpath === 'check') {
+    resHeaders.set('x-patch-check-cache', 'BYPASS');
   }
 
   return new Response(upstreamRes.body, {
