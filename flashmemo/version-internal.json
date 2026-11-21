@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "buildNumber": 4111,
+  "buildNumber": 4112,
   "channel": "internal",
-  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4111/app-release.apk",
-  "sha256": "8c6f1638b38ed195a773c49954f1a02394846add6f1fc195e1f9c41c527d48bc",
-  "publishedAt": "2026-11-21T23:45:00+08:00",
+  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4112/app-release.apk",
+  "sha256": "c593f7d830a60214be986199c6f663262c41df67cc30e144f155c9cac51599bf",
+  "publishedAt": "2026-11-22T03:30:00+08:00",
   "forceUpdate": false,
-  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4111) · 器物灵魂回归版 · 完整内置离线模型 · 198MB】\n1. 🎛️ Logo C 器物三件套回归：顶栏重现经典博朗扬声微孔点阵与 ZX-TP1 · STUDIO 铭牌，高清复古指针 VU 表与磨砂黑 OLED 提醒窗常驻；左下角加大号大红凹盆 REC 主键直呼统一录音弹层，配右侧 4 档博朗橙实体滑杆（全部 · 备忘 · 灵感 · 心情）；分享工坊底栏同步升级 8 档 01–08 实体胶片推子。\n2. 🃏 Balatro 弹性翻页卡匣 × 外置暖香槟铝边框对称双滚花轮：单屏高密度层叠 9–10 卡（去除重复分类行），焦点卡微倾弹出并自带播放与分享；左右对称 CNC 滚花金属轮外置嵌于黑色暗舱外侧暖香槟铝框 48%–90% 拇指热区，单手贴边盲扫双轮同步并伴随机械棘轮与翻页声效。\n3. 📱 Fold 8 满屏双栏工作台 & 4 项实机根治：彻底取消 448dp 左右灰边，宽屏满铺「左卡匣 + 右实时详情大爆炸」双栏；根治搜索框焦点与键盘唤起、竖屏保存自动返首页且用顶窗 OLED 绿灯轻提示取代底部黑条；内置 228MB SenseVoiceSmall 离线模型，覆盖安装保留全部数据。"
+  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4112) · 终极器物精修版 · 完整内置离线模型 · 198MB】\n1. ⌨️ 全应用外凸 3D 实体键帽（Braun ET66 × TE OP-1 机械键盘语言）：暗色 CNC 铣削键孔底座 + 3–5.5dp 立体外凸侧壁 + 顶缘高光倒角 + 真实按压下沉行程，涵盖大红 REC 柱键、播放/搜索/删除三联键、顶栏 ⚙ SET 立体拨钮及录音浮层取消/朱红结束大键。\n2. 🎙️ 录音浮层实装精修：移除右上角冗余 ⚙ 按钮，保留单枚外凸拉丝铝圆形 × 关闭键；拍摄键换装 CNC 暖铝外凸快门键，整体器物质感浑然一体。\n3. 📱 Fold 8 实机 10 项全量精修：双联 VU 表盘暖灯摆动与分享工坊 0.00px 同轴锁死、安全删除防误触与顶部批量确认栏、搜索激活自锁与 344×882 窄外屏零溢出适配；内置 228MB SenseVoiceSmall 离线模型，覆盖安装保留全部数据。"
 }
