@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "buildNumber": 4118,
+  "buildNumber": 4119,
   "channel": "beta",
-  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4118/app-release.apk",
-  "sha256": "d712a15aa3df383d5e9e12114fec297c2c4540bfb6cc4d05cce18153d2863b0a",
-  "publishedAt": "2026-11-22T13:52:00+08:00",
+  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4119/app-release.apk",
+  "sha256": "13ca1e03135184543d1cbaf13ee21fa44c4a51cbed472084608c4c38733e6ccc",
+  "publishedAt": "2026-11-22T16:06:00+08:00",
   "forceUpdate": false,
-  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4118) · 闪念盒静息全平铺（未交互零突出）× 首次点动弹出精雕版 · 完整内置离线模型 · 199MB】\n1. 🗂️ 首页闪念盒静息态全平铺收纳（#1043）：进入闪念盒、通过底部 4 档滑块切换分类、或清空搜索回到默认列表后，尚未触碰/滑动卡片或拨动左右滚花轮前，所有卡片整齐等宽平铺收纳于暖枪灰导轨内（零弹出、零突出、零抬升缩放），暗青铜压卡条安静显示「— / 总数」。\n2. 👆 首次触碰/拖动/拨轮即时 0.00° 水平弹出：第一次点动任意卡片或拨动左右铝制滚花轮，目标卡片即刻丝滑弹出；Fold 8 展开态双栏左侧闪念盒同样遵循静息全平铺与首次点动弹出联动右栏。\n3. 🎛️ 静息态底部「播放 / 删除」优雅兜底：未点动卡片直接点底部播放或删除键，自动聚焦弹出列表首张卡片并执行对应操作。\n4. ⌚ 完整继承 4117 Galaxy Watch5 Pro Wear OS 双向同步桥接与 4116 激光阴刻盲操/27dp 色脊/拍照暂停静默计时。"
+  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4119) · 博朗 / 徕卡 / 纳格拉声触物理建模 v9 黄金版 · 完整内置离线模型 · 199MB】\n1. 🔊 全量 29 音色 v9 物理建模重铸（#1084/#1087）：彻底淘汰旧正弦电子音，统一采用多共振峰 Chamberlin SvFilter + 宽频瞬态撞击微噪 + 250–650Hz 手机微扬声器低频谐波补偿 + 去直流响度归一化与尾端淡出；清晰拉开 8 大硬件材质辨识度，ET66 方键按下 Thock → 松手 Clack 双段手感清晰可闻。\n2. 📳 Fold 8 / One UI 声触专调：SoundPool 切至媒体声道（侧键直接控音量）并严格遵循系统静音/仅震动自动静音保震及录音防串麦静音；新增磁盘 WAV 缓存复用免冷启重合成；全量震动补齐 API 33+ VibrationAttributes(USAGE_TOUCH) 与高精度波形包络降级。\n3. ⚡ 单次原子 playTactileCue 通道（声触对齐 <2ms）+ 控件双响大扫除：一次 IPC 同步触发线性马达与机械声学采样，自动抑制 onPressUp 与专属音效 0ms 双响碰撞，全站清零残余裸 HapticFeedback。\n4. 🗂️ 完整继承 4118 闪念盒静息全平铺、4117 Galaxy Watch5 Pro 双向同步桥接与 4116 激光阴刻盲操/27dp 色脊。"
 }
