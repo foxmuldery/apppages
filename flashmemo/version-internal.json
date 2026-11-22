@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "buildNumber": 4117,
+  "buildNumber": 4118,
   "channel": "internal",
-  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4117/app-release.apk",
-  "sha256": "8176e0735115c93e6d5418af881ce98aa7182bd13f2a77b9aff369f7c270db52",
-  "publishedAt": "2026-11-22T13:12:00+08:00",
+  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4118/app-release.apk",
+  "sha256": "d712a15aa3df383d5e9e12114fec297c2c4540bfb6cc4d05cce18153d2863b0a",
+  "publishedAt": "2026-11-22T13:52:00+08:00",
   "forceUpdate": false,
-  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4117) · Galaxy Watch5 Pro (Wear OS) 双向录音与提醒同步桥接版 · 完整内置离线模型 · 199MB】\n1. ⌚ 接通 Galaxy Watch5 Pro 双向桥接（#1020）：新增后台 Wearable Data Layer 持久化接收服务，手表离线录音经蓝牙回传 Fold 8 后自动 SHA-256 校验落盘并回发 ACK 清空腕上待同步队列，即使手机冷态/杀后台也不丢录音。\n2. 🧠 手表录音直通本机 SenseVoiceSmall 离线转写与幂等入库：按 sync_uuid 严格去重写入本地数据库，完整保留手表端选择的「备忘 / 灵感 / 心情」分类、录音时间与时长，转写完成即刻刷新首页闪念盒。\n3. 🔔 腕上提醒实时双向闭环：启动、增删改提醒或手表请求时即时推送未过期即将发生提醒（按时间升序、单调递增版本号、加锁私密笔记自动脱敏）；支持腕上点「完成 / 延后 15 分钟」同步回写并取消/重排本机闹钟，支持 zhaixing://note/<syncUuid> 一键在 Fold 8 定位打开对应闪念卡片。\n4. 📐 完整继承 4116 全部体验：0.00° 笔直焦点卡、全站激光阴刻符号与完整盲操模式、27dp 竖字便签色脊、录音中添加照片自动暂停并重置 5 秒静默倒计时。"
+  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4118) · 闪念盒静息全平铺（未交互零突出）× 首次点动弹出精雕版 · 完整内置离线模型 · 199MB】\n1. 🗂️ 首页闪念盒静息态全平铺收纳（#1043）：进入闪念盒、通过底部 4 档滑块切换分类、或清空搜索回到默认列表后，尚未触碰/滑动卡片或拨动左右滚花轮前，所有卡片整齐等宽平铺收纳于暖枪灰导轨内（零弹出、零突出、零抬升缩放），暗青铜压卡条安静显示「— / 总数」。\n2. 👆 首次触碰/拖动/拨轮即时 0.00° 水平弹出：第一次点动任意卡片或拨动左右铝制滚花轮，目标卡片即刻丝滑弹出；Fold 8 展开态双栏左侧闪念盒同样遵循静息全平铺与首次点动弹出联动右栏。\n3. 🎛️ 静息态底部「播放 / 删除」优雅兜底：未点动卡片直接点底部播放或删除键，自动聚焦弹出列表首张卡片并执行对应操作。\n4. ⌚ 完整继承 4117 Galaxy Watch5 Pro Wear OS 双向同步桥接与 4116 激光阴刻盲操/27dp 色脊/拍照暂停静默计时。"
 }
