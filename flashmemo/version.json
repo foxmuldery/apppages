@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "buildNumber": 4119,
+  "buildNumber": 4120,
   "channel": "beta",
-  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4119/app-release.apk",
-  "sha256": "13ca1e03135184543d1cbaf13ee21fa44c4a51cbed472084608c4c38733e6ccc",
-  "publishedAt": "2026-11-22T16:06:00+08:00",
+  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4120/app-release.apk",
+  "sha256": "1b9aa995d8881acf0a0f16ddf4445a3dceffbe5eb1874673a32fddd7d7bc2ea9",
+  "publishedAt": "2026-11-22T18:40:00+08:00",
   "forceUpdate": false,
-  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4119) · 博朗 / 徕卡 / 纳格拉声触物理建模 v9 黄金版 · 完整内置离线模型 · 199MB】\n1. 🔊 全量 29 音色 v9 物理建模重铸（#1084/#1087）：彻底淘汰旧正弦电子音，统一采用多共振峰 Chamberlin SvFilter + 宽频瞬态撞击微噪 + 250–650Hz 手机微扬声器低频谐波补偿 + 去直流响度归一化与尾端淡出；清晰拉开 8 大硬件材质辨识度，ET66 方键按下 Thock → 松手 Clack 双段手感清晰可闻。\n2. 📳 Fold 8 / One UI 声触专调：SoundPool 切至媒体声道（侧键直接控音量）并严格遵循系统静音/仅震动自动静音保震及录音防串麦静音；新增磁盘 WAV 缓存复用免冷启重合成；全量震动补齐 API 33+ VibrationAttributes(USAGE_TOUCH) 与高精度波形包络降级。\n3. ⚡ 单次原子 playTactileCue 通道（声触对齐 <2ms）+ 控件双响大扫除：一次 IPC 同步触发线性马达与机械声学采样，自动抑制 onPressUp 与专属音效 0ms 双响碰撞，全站清零残余裸 HapticFeedback。\n4. 🗂️ 完整继承 4118 闪念盒静息全平铺、4117 Galaxy Watch5 Pro 双向同步桥接与 4116 激光阴刻盲操/27dp 色脊。"
+  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4120) · 全生态多端备份同步套件 + 首页真叠压卡盒 · 完整内置离线模型 · 199MB】\n1. ☁️ 全生态多端备份同步三引擎（#1091/#1096）：同一套 Sync v2 三方合并内核同时驱动坚果云 / WebDAV（一键预设 + 静默防抖后台自动同步 + 录音期自动避让）、Apple iCloud Drive 原生文档容器桥接、以及本地 .zip 全量离线保险箱（导出与安全三方合并导入）；同步范围全面升级至闹钟提醒 + 地点邮戳 + 音频（默认仅 Wi-Fi 同步音频），并在设置新增博朗拟物多端备份仓。\n2. 🃏 首页闪念盒真叠压卡片堆（#1097）：严格守住静息零凸起（#1043）的同时，将 300g 棉纸档案卡真正按 38–48dp 步进叠压进卡片盒（每张全高 114–128dp，真实遮盖 66–86dp），配 1.2px 奶白裁纸顶边、向上压影、盒深色阶渐暗与每张卡自然手作微偏；轻点任意卡即可 0.00° 摆正弹起展开阅读，彻底消除 7dp 生硬黑沟。\n3. 🔊 完整继承 4119 全量 29 音色 v9 博朗/徕卡/纳格拉声触物理建模、单次原子 <2ms 声触对齐、4117 Galaxy Watch5 Pro 双向同步桥接与 4116 激光阴刻盲操。"
 }
