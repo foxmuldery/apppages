@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "buildNumber": 4122,
+  "buildNumber": 4123,
   "channel": "beta",
-  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4122/app-release.apk",
-  "sha256": "b69638477a0d148c1e208df488c6402c52bcd37a4a8353014d9d73d6ba0b75f7",
-  "publishedAt": "2026-11-23T08:37:00+08:00",
+  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4123/app-release.apk",
+  "sha256": "f0bc23eade63c5416d6ae46f80a7a0cb164942b073979f37a080b6be3e787707",
+  "publishedAt": "2026-11-23T10:18:00+08:00",
   "forceUpdate": false,
-  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4122) · 详情大爆炸键帽 3.4dp 博朗橙实沉锁止 + 两段指腹微动 + 深色状态栏 · 199MB】\n1. ⌨️ 详情页大爆炸物理键帽重塑（#1151/#1152）：彻底消除旧版选中态深炭黑「黑洞隐身」困惑——未选弹起态采用暖象牙哑光 ABS（#FAF6EE → #ECE5D8）配 4.8dp 立体梯形底裙与饱满投影高高浮于键床之上；选中按下锁止态实打实物理下沉 3.4dp（底裙压至 1.0dp 齐平键床，整行 0.00px 零抖动）并切为高辨识度博朗雾面暖橙（#E86F2C → #CC5618）+ 纯白加粗字（#FFFDF9），按下与弹起一眼分明！\n2. 👆 真实指腹两段微动：补齐 onTapDown / onTap / onTapCancel 实时下压行程与 onKeycapDown / onKeycapUp 两段机械声触，杜绝重复双响与滑动误触。\n3. 📱 Android 浅铝顶栏深色状态栏图标：补齐深色系统状态栏图标适配，时间与电量在香槟铝机壳上清晰可辨。\n4. 🃏 完整保留 4121 招牌首页 0.00° 笔直对称叠卡与小丑牌微抽出选中手感、全生态多端备份同步三引擎（坚果云 WebDAV + 原生 Apple iCloud Drive + 本地 .zip 离线保险箱）、v9 声触引擎与 Galaxy Watch5 Pro 双向同步。"
+  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4123) · 真·HTTP Range 断点续传 + 锁屏下载防丢 + 分享照片原比例零裁切 + 拍立得吐片动效 · 199MB】\n1. 🔁 应用内更新升级真·HTTP Range 断点续传（#1155）：持久化落盘 update_cache/，弱网断连自动带 Range 收到 206 从断点无缝续传并支持跨镜像接力（ghfast.top ⇄ github.com），绝不归零重下；下载中实时展示「已下 / 总计 MB · 断点续传已开启」，断网恢复后点「继续下载 (XX%)」秒接断点，已下完完整包 0 秒秒装。\n2. 🔒 锁屏 / 后台下载完成防丢机制（#1158）：安装包校验通过自动落盘 verified.json；若下完瞬间处于锁屏/后台不再将安装器丢进黑洞，解锁回前台或重新打开 App 立即 0 秒补拉安装或展示「✅ 安装包已就绪 · 立即安装（已下载）」，升级完成后自动清理旧缓存释放空间。\n3. 🖼️ 分享卡片 01–08 全模板照片原比例零裁切（#1161-1）：分享工坊支持纵向顺滑滚动全幅预览，竖拍/横拍/方图均按原图真实宽高比完整呈现，不再被硬裁成扁长条，实时预览与 3× 高清导出 PNG 100% 所见即所得。\n4. 📸 拍立得机械快门闪光 + SX-70 阻尼吐片出纸动效回归（#1161-2）：点击「↓ 存图」触发暖白双帘快门闪光 + SX-70 上滑吐片 + 对角暖光显影扫光并柔和归位；点击「⬆ 分享」卡片轻盈上举递出调起系统分享；切换 01–08 版式呈现细腻暗房显影过渡。\n5. 🃏 完整保留 4122 详情大爆炸博朗橙实沉键帽、4121 招牌 0.00° 笔直对称叠卡首页、全生态多端备份同步三引擎（坚果云 WebDAV + 原生 Apple iCloud Drive + 本地 .zip 离线保险箱）、v9 声触引擎与 Galaxy Watch5 Pro 双向同步。"
 }
