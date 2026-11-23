@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "buildNumber": 4121,
+  "buildNumber": 4122,
   "channel": "internal",
-  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4121/app-release.apk",
-  "sha256": "3d9ca782d5bacced070b642fa31b84bf6160d4003197da4f2b0c89e6e272eb8f",
-  "publishedAt": "2026-11-22T19:16:00+08:00",
+  "apkUrl": "https://github.com/foxmuldery/starcardhomepage/releases/download/v1.0.0-4122/app-release.apk",
+  "sha256": "b69638477a0d148c1e208df488c6402c52bcd37a4a8353014d9d73d6ba0b75f7",
+  "publishedAt": "2026-11-23T08:37:00+08:00",
   "forceUpdate": false,
-  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4121) · 0.00° 笔直叠压立体阴影 + 小丑牌微抽出选中态 + 全生态多端备份同步 · 199MB】\n1. 🃏 首页卡盒精准纠偏（#1112/#1113）：彻底清零随机歪斜，全栈恢复 0.00° 绝对水平与 0.0px 零随机横偏，保留左右绝对对称盒深微缩透视（每层 1.2dp，上限 6dp）、1.2px 奶白裁纸顶边与饱满向上叠压投影。\n2. 🎴 小丑牌「抽牌稍微抽出」手感：点击/划过/拨轮选中卡片时稳守金属导轨内（绝不爆框），像抽牌一样顺滑向上稍微抽出一截（文字卡露高 88–104dp / 拍立得卡 122–134dp），配深邃利落 3D 浮空阴影与暖高光纸边；再点展开详情。\n3. 🧾 末卡清爽精修：彻底去除最底层卡片重复正文与右下多余分类胶囊，还原 300g 棉纸档案卡纯净质感。\n4. ☁️ 完整保留 4120 全生态多端备份同步三引擎（坚果云 WebDAV + iCloud Drive 原生容器正式激活 + 本地 .zip 离线保险箱）、4119 v9 博朗/徕卡声触引擎与 4117 Galaxy Watch5 Pro 双向同步。"
+  "releaseNotes": "【留声闪记 FLASH MEMO v1.0.0 (4122) · 详情大爆炸键帽 3.4dp 博朗橙实沉锁止 + 两段指腹微动 + 深色状态栏 · 199MB】\n1. ⌨️ 详情页大爆炸物理键帽重塑（#1151/#1152）：彻底消除旧版选中态深炭黑「黑洞隐身」困惑——未选弹起态采用暖象牙哑光 ABS（#FAF6EE → #ECE5D8）配 4.8dp 立体梯形底裙与饱满投影高高浮于键床之上；选中按下锁止态实打实物理下沉 3.4dp（底裙压至 1.0dp 齐平键床，整行 0.00px 零抖动）并切为高辨识度博朗雾面暖橙（#E86F2C → #CC5618）+ 纯白加粗字（#FFFDF9），按下与弹起一眼分明！\n2. 👆 真实指腹两段微动：补齐 onTapDown / onTap / onTapCancel 实时下压行程与 onKeycapDown / onKeycapUp 两段机械声触，杜绝重复双响与滑动误触。\n3. 📱 Android 浅铝顶栏深色状态栏图标：补齐深色系统状态栏图标适配，时间与电量在香槟铝机壳上清晰可辨。\n4. 🃏 完整保留 4121 招牌首页 0.00° 笔直对称叠卡与小丑牌微抽出选中手感、全生态多端备份同步三引擎（坚果云 WebDAV + 原生 Apple iCloud Drive + 本地 .zip 离线保险箱）、v9 声触引擎与 Galaxy Watch5 Pro 双向同步。"
 }
